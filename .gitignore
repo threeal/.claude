@@ -1,3 +1,9 @@
-.*
+*
 !.github/
 !.gitignore
+!CLAUDE.md
+!dprint.json
+!lefthook.yaml
+!LICENSE
+!README.md
+!settings.json
