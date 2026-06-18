@@ -34,3 +34,7 @@ When creating a commit, do not capitalize the first letter of the commit message
 
 - Correct: `add login feature`
 - Incorrect: `Add login feature`
+
+## Implementation Changes
+
+When a fix requires changing the underlying implementation (e.g. replacing one approach with a different one, adding new abstractions, removing existing features), always describe the proposed change and the trade-offs first, then wait for explicit approval before making any edits. Do not conflate "explaining the root cause" with permission to implement a different solution.
