@@ -11,10 +11,10 @@ cd ~/.claude
 git init
 git remote add origin git@github.com:threeal/.claude.git
 git fetch
-git checkout main -tf
+git checkout -fB main origin/main
 ```
 
-> The `-tf` flags force the checkout and set up remote tracking, so existing files in the directory are overwritten by the repository contents.
+> The `-fB` flags force the checkout and reset the branch to track `origin/main`, so existing files in the directory are overwritten by the repository contents.
 
 ## License
 
