@@ -3,6 +3,7 @@
 !.gitignore
 !CLAUDE.md
 !dprint.json
+!gpg-no-prompt
 !lefthook.yaml
 !LICENSE
 !README.md
