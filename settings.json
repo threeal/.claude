@@ -1,9 +1,9 @@
 {
+  "agentPushNotifEnabled": true,
+  "inputNeededNotifEnabled": true,
   "permissions": {
     "defaultMode": "auto"
   },
   "theme": "dark",
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
   "tui": "fullscreen"
 }
