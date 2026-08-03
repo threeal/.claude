@@ -2,14 +2,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Git Commits
 
-Always sign commits with both GPG signing and the Developer Certificate of Origin sign-off:
+Always sign commits with both GPG signing and the Developer Certificate of Origin sign-off, using the `gpg-no-prompt` wrapper so signing fails fast instead of hanging on a passphrase prompt:
 
 ```
-git commit -S -s -m "message"
+git -c gpg.program=$HOME/.claude/gpg-no-prompt commit -sS -m "message"
 ```
 
 - `-S` — GPG-signs the commit
 - `-s` — appends a `Signed-off-by` trailer
+- `gpg.program=$HOME/.claude/gpg-no-prompt` — signs in batch/loopback mode instead of opening an interactive pinentry prompt
+
+If the commit fails with an error like `error: gpg failed to sign the data`, the GPG key is locked. Ask the user to unlock it by running `echo test | gpg --sign >/dev/null` themselves, then pause and wait for them to confirm before retrying the commit. Do not retry in a loop.
 
 ## Git Workflow
 
