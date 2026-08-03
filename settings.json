@@ -5,5 +5,5 @@
   "theme": "dark",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "tui": "fullscreen"
 }
