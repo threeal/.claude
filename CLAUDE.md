@@ -20,6 +20,8 @@ Never run `git commit` or `git push` unless explicitly told to do so. All change
 
 Never run `git add` when asked to commit — the user may have already staged specific files, and unstaged changes during a commit are intentional.
 
+Never modify the staging status of any file (`git add`, `git restore --staged`, `git reset`, etc.) unless the user explicitly allows or asks for it. The user routinely stages a subset of files before a commit as a deliberate checkpoint marking which changes they've reviewed and agreed to. If a task seems to require changing what's staged or unstaged, stop and flag it instead — that's a sign something is wrong with the task or approach, not a cue to touch the staging area.
+
 ## Pull Requests
 
 When creating a pull request, capitalize the first letter of the PR title.
