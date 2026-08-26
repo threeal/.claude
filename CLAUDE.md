@@ -40,6 +40,10 @@ When creating a commit, do not capitalize the first letter of the commit message
 - Correct: `add login feature`
 - Incorrect: `Add login feature`
 
+## Implementation Scope
+
+When asked to implement or modify code, only write the code. Do not run checks, tests, linters, type checkers, builds, or formatters afterward — not even to verify an edit you're personally unsure about. This applies even in projects with many configured checks. Only run a check when the user explicitly asks for it. Assume the code you write is correct on the first attempt rather than relying on a write-then-check loop; if it turns out wrong, the user will add guidance on what to write instead, rather than have you catch it via checks.
+
 ## Implementation Changes
 
 When a fix requires changing the underlying implementation (e.g. replacing one approach with a different one, adding new abstractions, removing existing features), always describe the proposed change and the trade-offs first, then wait for explicit approval before making any edits. Do not conflate "explaining the root cause" with permission to implement a different solution.
