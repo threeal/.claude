@@ -42,7 +42,9 @@ When creating a commit, do not capitalize the first letter of the commit message
 
 ## Implementation Scope
 
-When asked to implement or modify code, only write the code. Do not run checks, tests, linters, type checkers, builds, or formatters afterward — not even to verify an edit you're personally unsure about. This applies even in projects with many configured checks. Only run a check when the user explicitly asks for it. Assume the code you write is correct on the first attempt rather than relying on a write-then-check loop; if it turns out wrong, the user will add guidance on what to write instead, rather than have you catch it via checks.
+When asked to implement or modify code, only write the code. Do not run anything afterward to check, verify, or act on the result of what you wrote — not even to verify an edit you're personally unsure about. This is not limited to checks, tests, linters, type checkers, builds, or formatters — it also covers installing or updating dependencies after changing a manifest/lockfile, running a script you just wrote or edited, applying a migration, or any other command that executes the code or acts on its effects. This applies even in projects with many configured checks. Only run such a command when the user explicitly asks for it. Assume the code you write is correct on the first attempt rather than relying on a write-then-check loop; if it turns out wrong, the user will add guidance on what to write instead, rather than have you catch it via checks.
+
+This also governs auto mode: auto mode only licenses running commands that are read-only and state-free — commands that gather information without changing the state of any file, including committed code, data, or config. It never licenses running a command as a side effect of an implementation task, no matter how routine that command normally is.
 
 ## Implementation Changes
 
