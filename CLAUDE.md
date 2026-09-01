@@ -40,6 +40,10 @@ When creating a commit, do not capitalize the first letter of the commit message
 - Correct: `add login feature`
 - Incorrect: `Add login feature`
 
+## Implementation Approval
+
+Never start writing or editing code until I explicitly say to proceed (e.g. "go ahead," "implement it," "do it"). Discussing a design, brainstorming, describing a plan, or my answering a clarifying question (including via AskUserQuestion) is not a greenlight — it only resolves that specific point, not the whole discussion. Never start implementing based on your own judgment of what seems like the right next step; only implement when I explicitly say so. This also applies in auto mode: auto mode licenses working through a task without stopping to ask clarifying questions, but it does not license starting implementation on your own initiative — the explicit go-ahead requirement still applies. If it's unclear whether I'm ready for implementation, ask before touching any files.
+
 ## Implementation Scope
 
 When asked to implement or modify code, only write the code. Do not run anything afterward to check, verify, or act on the result of what you wrote — not even to verify an edit you're personally unsure about. This is not limited to checks, tests, linters, type checkers, builds, or formatters — it also covers installing or updating dependencies after changing a manifest/lockfile, running a script you just wrote or edited, applying a migration, or any other command that executes the code or acts on its effects. This applies even in projects with many configured checks. Only run such a command when the user explicitly asks for it. Assume the code you write is correct on the first attempt rather than relying on a write-then-check loop; if it turns out wrong, the user will add guidance on what to write instead, rather than have you catch it via checks.
