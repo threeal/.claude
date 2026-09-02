@@ -1,7 +1,13 @@
 ---
 name: git-conventions
-description: Formatting and signing conventions for git commits and GitHub pull requests. TRIGGER - about to run `git commit`, `gh pr create`, or otherwise write a commit message or PR title/description. SKIP - for the guardrails on whether to commit/push/stage at all; those live in CLAUDE.md and always apply.
+description: Formatting and signing conventions for GitHub issues, git commits, and GitHub pull requests. TRIGGER - about to run `gh issue create`, `git commit`, `gh pr create`, or otherwise write an issue body, commit message, or PR title/description. SKIP - for the guardrails on whether to commit/push/stage at all; those live in CLAUDE.md and always apply.
 ---
+
+## GitHub Issues
+
+When creating a GitHub issue, write it as narration that leads with the background and rationale — what problem or gap prompted the issue, what's currently missing, confusing, or broken, and why that matters. The implementation should get barely any space: a sentence or two near the end, or even folded into the closing line, is enough.
+
+Do not impose a formal structure with headers like "Background" / "Rationale" / "Implementation" — write flowing prose instead, the way you'd explain the problem to a colleague.
 
 ## Git Commits
 
