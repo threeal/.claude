@@ -39,7 +39,15 @@ When creating a pull request, capitalize the first letter of the PR title.
 
 Always write a meaningful PR description. Never open a PR with an empty or near-empty body — the point of asking Claude to open a PR is to avoid the user having to write the description themselves.
 
-In the PR body, omit any test plan items already covered by CI (e.g. formatting, lint, type checking, tests). If all items would be covered by CI, skip the test plan section entirely.
+Don't default to wrapping the whole body in a single `## Summary` header. A lone section header adds nothing when the content is obviously a summary — write it as plain prose or a bullet list with no header instead. Only add section headers when the body actually has more than one distinct kind of content to separate (e.g. a summary plus a test plan).
+
+Omit the test plan section entirely unless there's something a human actually needs to do to verify the change by hand. In particular, skip it when:
+
+- Every relevant check is already covered by CI or a git hook (formatting, lint, type checking, tests).
+- The change is documentation-only or otherwise has no runtime behavior to exercise.
+- It's otherwise obvious from the nature of the change that there's nothing to test.
+
+Never include a test plan section just to say "N/A" or "nothing to test" — if there's nothing worth telling the reviewer to do, leave the section out rather than including it empty-handed.
 
 ## Repository Description
 
