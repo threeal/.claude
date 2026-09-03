@@ -19,5 +19,3 @@ git checkout -fB main origin/main
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-Copyright © 2026 [Alfi Maulana](https://github.com/threeal)
