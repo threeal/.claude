@@ -1,6 +1,6 @@
 ---
 name: git-conventions
-description: Formatting and signing conventions for GitHub issues, git commits, and GitHub pull requests. TRIGGER - about to run `gh issue create`, `git commit`, `gh pr create`, or otherwise write an issue body, commit message, or PR title/description. SKIP - for the guardrails on whether to commit/push/stage at all; those live in CLAUDE.md and always apply.
+description: Formatting and signing conventions for GitHub issues, git commits, GitHub pull requests, and GitHub repository descriptions. TRIGGER - about to run `gh issue create`, `git commit`, `gh pr create`, `gh repo create --description`, `gh repo edit --description`, or otherwise write an issue body, commit message, PR title/description, or repo description. SKIP - for the guardrails on whether to commit/push/stage at all; those live in CLAUDE.md and always apply.
 ---
 
 ## GitHub Issues
@@ -40,3 +40,14 @@ When creating a pull request, capitalize the first letter of the PR title.
 Always write a meaningful PR description. Never open a PR with an empty or near-empty body — the point of asking Claude to open a PR is to avoid the user having to write the description themselves.
 
 In the PR body, omit any test plan items already covered by CI (e.g. formatting, lint, type checking, tests). If all items would be covered by CI, skip the test plan section entirely.
+
+## Repository Description
+
+When writing or updating a repository's description (the short text shown under "About" on the repo page):
+
+- Capitalize the first letter.
+- Do not end with a period or any other trailing punctuation.
+- Write it as a single tagline — a sentence fragment, not a full sentence with a verb clause and a period.
+- Commas are fine for lightly joining related qualities (e.g. `Fast, minimal HTTP router for Go`).
+- A single `-` or `—` separator is fine to join a name and a clarifying clause (e.g. `Zod — TypeScript-first schema validation`), but don't stack more than one.
+- No emoji.
