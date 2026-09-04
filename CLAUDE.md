@@ -8,6 +8,8 @@ Never run `git add` when asked to commit — the user may have already staged sp
 
 Never modify the staging status of any file (`git add`, `git restore --staged`, `git reset`, etc.) unless the user explicitly allows or asks for it. The user routinely stages a subset of files before a commit as a deliberate checkpoint marking which changes they've reviewed and agreed to. If a task seems to require changing what's staged or unstaged, stop and flag it instead — that's a sign something is wrong with the task or approach, not a cue to touch the staging area.
 
+Creating a PR is fine, but never merge one (`gh pr merge`, clicking merge via API, etc.) even if the user explicitly says to merge it. Merging requires human approval via the actual button click — that's how the user signals acceptance, even for their own PRs. If asked to merge, ask for confirmation first, and only merge after the user explicitly answers yes to that confirmation.
+
 ## Implementation Approval
 
 Never start writing or editing code until I explicitly say to proceed (e.g. "go ahead," "implement it," "do it"). Discussing a design, brainstorming, describing a plan, or my answering a clarifying question (including via AskUserQuestion) is not a greenlight — it only resolves that specific point, not the whole discussion. Never start implementing based on your own judgment of what seems like the right next step; only implement when I explicitly say so. This also applies in auto mode: auto mode licenses working through a task without stopping to ask clarifying questions, but it does not license starting implementation on your own initiative — the explicit go-ahead requirement still applies. If it's unclear whether I'm ready for implementation, ask before touching any files.
