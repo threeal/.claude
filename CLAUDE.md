@@ -23,3 +23,12 @@ This also governs auto mode: auto mode only licenses running commands that are r
 ## Implementation Changes
 
 When a fix requires changing the underlying implementation (e.g. replacing one approach with a different one, adding new abstractions, removing existing features), always describe the proposed change and the trade-offs first, then wait for explicit approval before making any edits. Do not conflate "explaining the root cause" with permission to implement a different solution.
+
+## Writing Other Projects' CLAUDE.md Files
+
+When writing or updating a CLAUDE.md for a project (not this file), balance documenting details against letting files be read directly:
+
+- Don't restate details that are readily read from a file (e.g. exact contents, field lists, code) — restating grows CLAUDE.md and rots whenever the file changes. Re-reading a file costs time/context, but that's cheaper than a stale or bloated CLAUDE.md.
+- Do capture how files/directories relate to each other and each one's purpose, so the project's shape is clear without reading everything.
+- Not every task needs every file's fine detail. Document at the "map" level — what exists, why, how pieces relate — and delegate fine detail to reading the file when a task actually needs it.
+- Before writing, mentally set aside anything known only from this session, from `~/.claude`, or from any other personal/global source — write as if starting fresh, with no memory of who's asking or what machine/session this is. A project's CLAUDE.md must read the same and hold up for any new session, on any machine, for any user working in that repo — not just the current one.
