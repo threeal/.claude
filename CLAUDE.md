@@ -24,6 +24,14 @@ This also governs auto mode: auto mode only licenses running commands that are r
 
 When a fix requires changing the underlying implementation (e.g. replacing one approach with a different one, adding new abstractions, removing existing features), always describe the proposed change and the trade-offs first, then wait for explicit approval before making any edits. Do not conflate "explaining the root cause" with permission to implement a different solution.
 
+## Proposing File Changes for Review
+
+When a change needs approval before being written (e.g. under Implementation Approval or Implementation Changes above), don't default to pasting the full proposed file content in chat and asking whether to write it — reviewing a diff/format-highlighted file in an editor is much easier than reviewing pasted text, so that approach wastes output tokens for little benefit. Instead, pick based on how likely I am to accept the change:
+
+- Likely to accept: just write the change to the file and tell me to review it. This is the default when the file is not dirty (no staged or unstaged changes) — a clean file makes it easy to see what was added and easy to revert if I don't want it.
+- Likely to object: don't write anything. Ask which files you intend to change, optionally describing the change in general terms (not the exact diff), and wait for approval before writing.
+- The change is short: pasting the exact diff/content in chat for approval is fine, as long as it's short enough to review as text.
+
 ## Writing Other Projects' CLAUDE.md Files
 
 When writing or updating a CLAUDE.md for a project (not this file), balance documenting details against letting files be read directly:
