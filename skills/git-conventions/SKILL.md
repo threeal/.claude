@@ -3,6 +3,12 @@ name: git-conventions
 description: Formatting and signing conventions for GitHub issues, git commits, GitHub pull requests, and GitHub repository descriptions. TRIGGER - about to run `gh issue create`, `git commit`, `gh pr create`, `gh repo create --description`, `gh repo edit --description`, or otherwise write an issue body, commit message, PR title/description, or repo description. SKIP - for the guardrails on whether to commit/push/stage at all; those live in CLAUDE.md and always apply.
 ---
 
+## Cross-Repository References
+
+When writing a GitHub issue, PR description, or comment that references an issue or PR in a different repository from the one the text is being written in, never use a bare `#id` — GitHub only auto-links a bare `#id` to the repository the text is rendered in, so it silently resolves to whatever issue or PR happens to hold that number there, which is very likely the wrong thing. Use either the full URL (`https://github.com/org/repo/issues/id`) or the `org/repo#id` shorthand instead — both render as an unambiguous cross-repo link.
+
+A bare `#id` is only correct when referencing an issue or PR in the same repository as the text being written.
+
 ## GitHub Issues
 
 When creating a GitHub issue, write it as narration that leads with the background and rationale — what problem or gap prompted the issue, what's currently missing, confusing, or broken, and why that matters. The implementation should get barely any space: a sentence or two near the end, or even folded into the closing line, is enough.
