@@ -1,0 +1,6 @@
+---
+name: updating-existing-prose
+description: How to integrate a change into existing prose so it reads as written fresh rather than bolted on. TRIGGER - about to update existing prose (README, CLAUDE.md, code comments, PR/issue descriptions, or any other doc) to reflect a change. SKIP - writing new prose from scratch, where there's nothing existing to integrate against.
+---
+
+When asked to update existing prose — docs like README.md, CLAUDE.md files, code comments, PR/issue descriptions — to reflect a change, resist the default of finding the most convenient spot and appending/prepending/inserting there. First check whether that placement reads smoothly against what's already there (chronology, topic grouping, tone). If it wouldn't — e.g. it describes events out of order, or bolts on a fact as a trailing clause instead of integrating it — don't leave the seam showing: rework whatever span is actually affected (a sentence, a paragraph, several paragraphs, or rarely the whole document) so it reads as if written fresh. This is a balancing judgment, not a mandate to always rewrite — if a simple insertion already reads fine, that's the right call, and the cheaper one. Weigh how much a rework would improve the narration's smoothness against how heavy it is, and lean toward the smaller change when the awkwardness is minor.
