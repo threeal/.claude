@@ -32,15 +32,6 @@ When a change needs approval before being written (e.g. under Implementation App
 - Likely to object: don't write anything. Ask which files you intend to change, optionally describing the change in general terms (not the exact diff), and wait for approval before writing.
 - The change is short: pasting the exact diff/content in chat for approval is fine, as long as it's short enough to review as text.
 
-## Updating Existing Prose
+## Maintaining This Project's Own Guidance
 
-When asked to update existing prose — docs like README.md, CLAUDE.md files, code comments, PR/issue descriptions — to reflect a change, resist the default of finding the most convenient spot and appending/prepending/inserting there. First check whether that placement reads smoothly against what's already there (chronology, topic grouping, tone). If it wouldn't — e.g. it describes events out of order, or bolts on a fact as a trailing clause instead of integrating it — don't leave the seam showing: rework whatever span is actually affected (a sentence, a paragraph, several paragraphs, or rarely the whole document) so it reads as if written fresh. This is a balancing judgment, not a mandate to always rewrite — if a simple insertion already reads fine, that's the right call, and the cheaper one. Weigh how much a rework would improve the narration's smoothness against how heavy it is, and lean toward the smaller change when the awkwardness is minor.
-
-## Writing Other Projects' CLAUDE.md Files
-
-When writing or updating a CLAUDE.md for a project (not this file), balance documenting details against letting files be read directly:
-
-- Don't restate details that are readily read from a file (e.g. exact contents, field lists, code) — restating grows CLAUDE.md and rots whenever the file changes. Re-reading a file costs time/context, but that's cheaper than a stale or bloated CLAUDE.md.
-- Do capture how files/directories relate to each other and each one's purpose, so the project's shape is clear without reading everything.
-- Not every task needs every file's fine detail. Document at the "map" level — what exists, why, how pieces relate — and delegate fine detail to reading the file when a task actually needs it.
-- Before writing, mentally set aside anything known only from this session, from `~/.claude`, or from any other personal/global source — write as if starting fresh, with no memory of who's asking or what machine/session this is. A project's CLAUDE.md must read the same and hold up for any new session, on any machine, for any user working in that repo — not just the current one.
+Before adding or editing anything in this file or under `~/.claude/skills/`, load the `claude-home-conventions` skill — it defines what belongs in this file versus in a skill, and how a skill should be scoped and structured.
