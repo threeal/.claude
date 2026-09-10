@@ -3,11 +3,23 @@ name: github-issue-pr-conventions
 description: Formatting conventions for GitHub issue and pull request content — narration style, title/description casing, cross-repo issue/PR references. TRIGGER - about to run `gh issue create`, `gh pr create`, or otherwise write an issue body, PR title/description, or a comment referencing another repo's issue/PR. SKIP - commit messages (see git-commit-conventions) or repo descriptions (see repo-description-conventions).
 ---
 
-## Cross-Repository References
+## Naming vs. Linking References
 
-When writing a GitHub issue, PR description, or comment that references an issue or PR in a different repository from the one the text is being written in, never use a bare `#id` — GitHub only auto-links a bare `#id` to the repository the text is rendered in, so it silently resolves to whatever issue or PR happens to hold that number there, which is very likely the wrong thing. Use either the full URL (`https://github.com/org/repo/issues/id`) or the `org/repo#id` shorthand instead — both render as an unambiguous cross-repo link.
+Backticks are for naming something as an identifier — a repo, an issue/PR, a file — and are fine there regardless of whether that same thing is linkable elsewhere. Whether a reference should also be clickable is a separate choice: match it to whether a click-through is actually wanted at that point in the text, not an absolute ban on backticks.
 
-A bare `#id` is only correct when referencing an issue or PR in the same repository as the text being written.
+For an issue or PR, an actual link relies on GitHub's autolinking, which only fires on plain text — never inside a code span:
+
+- Same-repo: a bare `#id` in plain text.
+- Cross-repo: `org/repo#id` or the full URL, in plain text. Never a bare `#id` cross-repo — GitHub auto-links it to whatever issue or PR happens to hold that number in the rendering repo, which is very likely the wrong thing.
+
+Naming an issue/PR rather than linking it — e.g. in a possessive phrase, or when it's already linked once elsewhere in the same body — is fine backticked either way: `` `threeal/action-starter#1076` ``'s CLAUDE.md implementation replaced...
+
+For a repo or a file, GitHub doesn't auto-link a bare string at all, so naming one — backticked or not — never produces a link. If a repo or file actually needs to be clickable, write an explicit markdown link to its GitHub URL instead:
+
+- Naming a repo: `` `threeal/nodejs-starter` ``'s CLAUDE.md still uses...
+- Linking a repo: see [threeal/nodejs-starter](https://github.com/threeal/nodejs-starter)
+- Naming a file: `` `src/main.ts` `` handles the entry point
+- Linking a file: see [`src/main.ts`](https://github.com/org/repo/blob/main/src/main.ts)
 
 ## GitHub Issues
 
