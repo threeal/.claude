@@ -36,6 +36,8 @@ When creating a pull request, capitalize the first letter of the PR title.
 
 Always write a meaningful PR description. Never open a PR with an empty or near-empty body — the point of asking Claude to open a PR is to avoid the user having to write the description themselves.
 
+When the PR closes a GitHub issue, open the description with a GitHub-recognized closing keyword and reference (e.g. `Closes #44`) so the link both closes the issue on merge and lets a reader jump to its background — then don't restate that background. A brief nod to what the issue is about is enough; spend the rest of the body on the changes actually made, since the issue is one click away for anyone who wants the full reasoning.
+
 Don't default to wrapping the whole body in a single `## Summary` header. A lone section header adds nothing when the content is obviously a summary — write it as plain prose or a bullet list with no header instead. Only add section headers when the body actually has more than one distinct kind of content to separate (e.g. a summary plus a test plan).
 
 Omit the test plan section entirely unless there's something a human actually needs to do to verify the change by hand. In particular, skip it when:
