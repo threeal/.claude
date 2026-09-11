@@ -8,6 +8,7 @@ A project's CLAUDE.md should work as a competent baseline for starting on anythi
 ## What to include
 
 - Skip generic tool descriptions entirely (e.g. "Linter configured in `eslint.config.ts`," "Package manager") — they restate what Claude already knows and add nothing.
+- The opening description is the first thing read to orient on a repo never seen before, and README.md doesn't substitute for it — it's written for a human skimming once, not re-read fact-dense every session, so don't assume it'll get read. Lead with the repo's purpose (what it does, why it exists): that's the one fact no source file states directly. Add language/stack/artifact type only when it isn't already obvious from the repo's file layout, and note what's deliberately absent or placeholder for a scaffold/template repo.
 - Do state where a given concern's configuration actually lives, since that can't be reliably guessed (an ESLint config alone could be `.js`, `.ts`, `.mjs`, or `.cjs`) — cheaper to say once than have it rediscovered by search every session.
 - Devote the real space to facts that are genuinely non-obvious and load-bearing: the kind that are easy to get wrong and expensive to debug (a config split across two files by purpose, an import-path rule tied to a compiler setting, a coverage threshold that behaves unexpectedly across a whole run instead of per file, a formatter plugin silently changing default behavior, a pre-commit hook that can fail and need a re-stage-and-retry). Keep these together in their own section — don't bury them inside generic tool descriptions or split them off into a section disconnected from the tool they belong to.
 - Don't restate a fact that's already declared canonically elsewhere in the repo (e.g. output paths already in `package.json`) — point at the source instead, since duplication drifts out of sync.
@@ -17,6 +18,8 @@ A project's CLAUDE.md should work as a competent baseline for starting on anythi
 ## How to write it
 
 Before writing, mentally set aside anything known only from this session, from `~/.claude`, or from any other personal/global source — write as if starting fresh, with no memory of who's asking or what machine/session this is. A project's CLAUDE.md must read the same and hold up for any new session, on any machine, for any user working in that repo — not just the current one.
+
+Prefer dense fragments over full sentences throughout — drop filler like "This is a" or "There is no," and say a fact in as few words as carry it: CLAUDE.md is read by Claude every session, not skimmed once by a human, so token-per-fact density matters more than prose flow. This is why the rest of a good CLAUDE.md already reads as fragments — bullets, `Config map`, `Commands` — and the opening description should read the same way.
 
 When editing an existing CLAUDE.md rather than writing one from scratch, the same rework-rather-than-append approach as any other prose applies (see updating-existing-prose), plus two things specific to CLAUDE.md:
 
