@@ -34,4 +34,6 @@ When a change needs approval before being written (e.g. under Implementation App
 
 ## Maintaining This Project's Own Guidance
 
+This repository is the durable, cross-machine home for guidance that should hold in any repo — unlike a project's local memory, which is per-project and per-machine. Whenever a memory entry saved in any project reflects general guidance about Claude's own behavior, workflow, or formatting conventions — not something specific to that project's own code or context — ask the user whether it should also be proposed as a change here, rather than leaving it only in that project's local memory.
+
 Before adding or editing anything in this file or under `~/.claude/skills/`, load the `claude-home-conventions` skill — it defines what belongs in this file versus in a skill, and how a skill should be scoped and structured.
