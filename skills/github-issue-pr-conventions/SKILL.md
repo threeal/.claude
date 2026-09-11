@@ -25,7 +25,7 @@ For a repo or a file, GitHub doesn't auto-link a bare string at all, so naming o
 
 When creating a GitHub issue, write it as narration that leads with the background and rationale — what problem or gap prompted the issue, what's currently missing, confusing, or broken, and why that matters. The implementation should get barely any space: a sentence or two near the end, or even folded into the closing line, is enough.
 
-Do not impose a formal structure with headers like "Background" / "Rationale" / "Implementation" — write flowing prose instead, the way you'd explain the problem to a colleague.
+Prose is still the default and generally the better shape for that narrative background and rationale — most issues are one coherent problem description, not a set of disjoint facts. But don't impose that shape where it doesn't fit: a bullet list, code block, table, or even a section header is fine whenever it separates genuinely distinct kinds of content more clearly than prose would — an ordered list of steps, a short ranking, a before/after comparison, a code snippet. The bar is whether the structure actually earns its place, not a blanket rule against it just because issues are "supposed to be narration."
 
 ## Pull Requests
 
