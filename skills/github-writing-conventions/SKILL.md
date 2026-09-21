@@ -7,20 +7,22 @@ description: Conventions for GitHub-facing text — issue and PR narration, titl
 
 Backticks name something as an identifier — a repo, an issue/PR, a file — and are fine there whether or not that thing is linkable elsewhere. Whether a reference should also be clickable is a separate choice: match it to whether a click-through is wanted at that point in the text.
 
-An issue or PR link relies on GitHub's autolinking, which fires only on plain text, never inside a code span:
+An issue or PR link relies on GitHub's autolinking, which fires only on plain text, never inside a code span — so a clickable reference carries no backticks at all, not even around the number. A repo or file string never autolinks, so making one clickable takes an explicit markdown link.
 
-- Same-repo: a bare `#id` in plain text.
-- Cross-repo: `org/repo#id` or the full URL, in plain text. Never a bare `#id` cross-repo.
-  Why: GitHub links it to whatever issue or PR holds that number in the rendering repo, which is very likely the wrong thing.
+Write each form exactly as the examples below are formatted:
 
-Naming an issue/PR rather than linking it — in a possessive phrase, or when it's already linked once in the same body — is fine backticked: `` `threeal/action-starter#1076` ``'s CLAUDE.md implementation replaced...
-
-GitHub never auto-links a bare repo or file string, so naming one produces no link either way. When a repo or file needs to be clickable, write an explicit markdown link:
-
+- Naming an issue/PR: `` `threeal/action-starter#1076` ``'s CLAUDE.md implementation replaced...
+- Linking an issue/PR, same-repo: fixed by #44
+- Linking an issue/PR, cross-repo: fixed by threeal/action-starter#1076, or by the full URL
 - Naming a repo: `` `threeal/nodejs-starter` ``'s CLAUDE.md still uses...
 - Linking a repo: see [threeal/nodejs-starter](https://github.com/threeal/nodejs-starter)
 - Naming a file: `` `src/main.ts` `` handles the entry point
 - Linking a file: see [`src/main.ts`](https://github.com/org/repo/blob/main/src/main.ts)
+
+Naming rather than linking an issue/PR fits a possessive phrase, or one already linked once in the same body.
+
+Never link cross-repo with a bare number like #44.
+Why: GitHub resolves it against the rendering repo, pointing at whatever issue or PR holds that number there — very likely the wrong thing.
 
 ## Issues
 
