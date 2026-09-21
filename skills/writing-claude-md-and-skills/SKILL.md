@@ -34,6 +34,13 @@ Above that floor there's no fixed cut line for what clears the bar for CLAUDE.md
 Write for Claude specifically, not for a human skimming once.
 Why: Claude re-reads the whole file fresh every session rather than recalling a prior skim, so restating a point across several sentences spends tokens without resolving any ambiguity, and buries the rule under the qualification around it.
 
+Open every CLAUDE.md with this line:
+
+> This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+A home CLAUDE.md ends it `in any repository` instead, matching its scope — home guidance holds across every repo, a project's only in its own.
+Why: this line is the single exception to the rule above. It's written for a human who opens the repo without knowing what a CLAUDE.md is; Claude gains nothing from it, since the harness already labels the file when injecting it, so a pass optimizing for Claude as the reader deletes it unless told not to. It's also the only such exception — everything below the line is for Claude.
+
 Don't restate a fact Claude already reliably knows — a tool's default behavior, a standard convention, common practice.
 Why: these files exist to close the gap between what Claude already knows and what's specific to this repo or user, not to re-teach generic knowledge.
 State it only when this repo or user diverges from that default, or when it's a fact Claude can't be trusted to have right — past its knowledge cutoff, obscure or low-adoption, or a private/internal thing that collides in name with something public.
@@ -65,7 +72,7 @@ Home (`~/.claude/CLAUDE.md` and `~/.claude/skills/`) loads for one user, on ever
 A project's CLAUDE.md loads for anyone who opens that repo, including someone with no home config at all.
 
 - Write it to read the same and hold up for any user, on any machine — assume zero memory of any session, `~/.claude`, or other personal source.
-- It carries a concern with no home equivalent: orienting a fresh session to a repo it has never seen. Lead with the repo's purpose (the one fact no source file states directly, and README doesn't substitute for it — don't assume it'll get read); note stack/language only when it isn't obvious from the file layout; state where each concern's config actually lives (can't be reliably guessed); surface load-bearing gotchas, ordered by importance (above).
+- It carries a concern with no home equivalent: orienting a fresh session to a repo it has never seen. Below the opening line, lead with the repo's purpose (the one fact no source file states directly, and README doesn't substitute for it — don't assume it'll get read); note stack/language only when it isn't obvious from the file layout; state where each concern's config actually lives (can't be reliably guessed); surface load-bearing gotchas, ordered by importance (above).
 
 ## Grouping Skills by Trigger
 
