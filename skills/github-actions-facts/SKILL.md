@@ -1,14 +1,14 @@
 ---
 name: github-actions-facts
-description: Reference facts about GitHub Actions defaults and behavior (token permissions, etc). TRIGGER - editing/reviewing a .github/workflows/*.yaml file, or discussing GITHUB_TOKEN permissions, workflow default permissions, or GitHub Actions security defaults.
+description: GitHub Actions defaults that are easy to assume wrong, and how to check them. TRIGGER - editing/reviewing a .github/workflows/*.yaml file, or discussing GITHUB_TOKEN permissions, workflow default permissions, or GitHub Actions security defaults.
 ---
 
-## GITHUB_TOKEN default permissions
+## GITHUB_TOKEN Default Permissions
 
-Since February 2023, GitHub sets the default `GITHUB_TOKEN` permissions for **newly created repositories** to read-only (`contents: read`, etc.), not read-write. Source: https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/
+Don't assume a repo's default `GITHUB_TOKEN` permissions — check them:
 
-This default is a repo/org/enterprise-level setting (Settings → Actions → General → Workflow permissions), so it can still be overridden — repos created before Feb 2023, or ones where someone flipped the toggle to "Read and write permissions," will default to read-write instead.
+```
+gh api repos/<owner>/<repo>/actions/permissions/workflow
+```
 
-To check the actual current setting for a specific repo rather than assuming:
-
-    gh api repos/<owner>/<repo>/actions/permissions/workflow
+Why: the read-only default ([since February 2023](https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/)) applies only to repos created after that change, and it's a repo/org/enterprise setting (Settings → Actions → General → Workflow permissions) that anyone can flip. An older repo, or one where someone selected "Read and write permissions," defaults to read-write instead.
