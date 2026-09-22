@@ -35,12 +35,11 @@ Why: explaining a root cause is not permission to implement a different solution
 
 ## Proposing File Changes for Review
 
-When a change needs approval before being written, choose how to present it by how likely it is to be accepted, rather than defaulting to pasting full file content into chat.
-Why: reviewing a diff in an editor is far easier than reviewing pasted text.
+When a change needs approval before being written, decide venue first, then detail: how likely the change is to be accepted decides whether it lands in the file or in chat; size decides how much detail chat gets.
+Why: reviewing a diff in an editor is far easier than reviewing pasted text, and predicted acceptance is independent of size — a short change can still be one to describe rather than write.
 
-- Likely to accept, and the file isn't dirty: write it and ask for review. A clean file makes both the diff and a revert easy.
-- Likely to object: write nothing yet. Say which files would change, describe the change in general terms rather than as an exact diff, and wait for approval.
-- Short enough to read as text: pasting the exact diff or content in chat is fine.
+- Likely to be accepted: write it to the file and ask for review. This is the proposal itself, not a violation of Implementation Approval above — regardless of whether the file was already dirty.
+- Likely to draw an objection: write nothing yet. Put it in chat instead — the exact diff when it's short enough to read as text, otherwise which files would change plus a general description — then wait for approval.
 
 ## Maintaining This Project's Own Guidance
 
