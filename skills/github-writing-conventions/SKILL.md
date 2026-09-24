@@ -1,7 +1,9 @@
 ---
 name: github-writing-conventions
-description: Conventions for GitHub-facing text — issue and PR narration, title casing, cross-repo references, and repo descriptions. TRIGGER - about to run `gh issue create`, `gh pr create`, `gh repo edit --description`, or otherwise write an issue/PR body, a repo's About description, or a comment referencing another repo's issue/PR. SKIP - commit messages (see git-commit-conventions).
+description: Conventions for GitHub-facing text — issue and PR narration, title casing, cross-repo references, and repo descriptions. TRIGGER - about to run `gh issue create`, `gh pr create`, `gh repo edit --description`, or otherwise write an issue/PR body, a repo's About description, or a comment referencing another repo's issue/PR.
 ---
+
+This is on top of `prose-conventions`'s general rules for writing and editing prose.
 
 ## Naming vs. Linking References
 

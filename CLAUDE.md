@@ -2,6 +2,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Git Workflow
 
+This section covers whether you're allowed to commit, push, stage, or merge — not how to write or sign the commit itself; see `git-commit-conventions` for that.
+
 Never run `git commit` or `git push` unless explicitly told to.
 Why: every change is reviewed by the user before it's committed.
 

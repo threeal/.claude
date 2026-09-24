@@ -1,6 +1,6 @@
 ---
 name: git-commit-conventions
-description: Signing, message content, and casing for git commits. TRIGGER - about to run `git commit` or write a commit message. SKIP - whether to commit/push/stage at all; those guardrails live in CLAUDE.md and always apply.
+description: Signing, message content, and casing for git commits. TRIGGER - about to run `git commit` or write a commit message.
 ---
 
 ## Signing

@@ -31,6 +31,8 @@ Above that floor there's no fixed cut line for what clears the bar for CLAUDE.md
 
 ## Writing the Content
 
+This is on top of `prose-conventions`'s general rules for writing and editing prose; what follows is specific to CLAUDE.md and skills.
+
 Write for Claude specifically, not for a human skimming once.
 Why: Claude re-reads the whole file fresh every session rather than recalling a prior skim, so restating a point across several sentences spends tokens without resolving any ambiguity, and buries the rule under the qualification around it.
 

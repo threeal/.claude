@@ -3,6 +3,8 @@ name: github-actions-facts
 description: GitHub Actions defaults that are easy to assume wrong, and how to check them. TRIGGER - editing/reviewing a .github/workflows/*.yaml file, or discussing GITHUB_TOKEN permissions, workflow default permissions, or GitHub Actions security defaults.
 ---
 
+When writing or changing a value in the file, also follow `yaml-conventions`.
+
 ## GITHUB_TOKEN Default Permissions
 
 Don't assume a repo's default `GITHUB_TOKEN` permissions — check them:
