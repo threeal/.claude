@@ -10,7 +10,7 @@ A CLAUDE.md loads unconditionally within its scope — home's on every session, 
 Put a fact in CLAUDE.md when either of these applies, and its importance (below) is worth carrying every session:
 
 - Loading it on demand would come too late — a guardrail against an action that may already have happened by the time a trigger fires (e.g. don't stage a file without permission).
-- Loading it on demand would save nothing — a baseline orientation fact almost every task in scope needs anyway (e.g. the repo's purpose, or where a given concern's config lives).
+- Loading it on demand would save nothing — a baseline orientation fact almost every task in scope needs anyway (e.g. the repo's purpose, or where a concern's config lives when its file name doesn't say).
 
 Everything else belongs in a skill: useful for one specific kind of task, and cheap to miss until that task comes up.
 
@@ -41,12 +41,14 @@ Open every CLAUDE.md with this line:
 A home CLAUDE.md ends it `in any repository` instead, matching its scope — home guidance holds across every repo, a project's only in its own.
 Why: this line is the single exception to the rule above. It's written for a human who opens the repo without knowing what a CLAUDE.md is; Claude gains nothing from it, since the harness already labels the file when injecting it, so a pass optimizing for Claude as the reader deletes it unless told not to. It's also the only such exception — everything below the line is for Claude.
 
+Keep the file as a whole as small as it can be while still doing its job — every line of a CLAUDE.md loads in every session in its scope, and every line of a skill each time it loads.
+
 Don't restate a fact Claude already reliably knows — a tool's default behavior, a standard convention, common practice.
 Why: these files exist to close the gap between what Claude already knows and what's specific to this repo or user, not to re-teach generic knowledge.
 State it only when this repo or user diverges from that default, or when it's a fact Claude can't be trusted to have right — past its knowledge cutoff, obscure or low-adoption, or a private/internal thing that collides in name with something public.
 
-Don't restate a fact already declared canonically somewhere else — `package.json`, a config file, another skill. Point at the source instead.
-Why: duplication drifts out of sync the moment the canonical source changes.
+Restate a fact already declared canonically somewhere else — `package.json`, a config file, another skill — only when nearly every task in scope needs it and it rarely changes. Otherwise, point at the source instead.
+Why: a restated fact saves a lookup in every session but drifts out of sync whenever its source changes, so it pays off only when the lookup is near-universal and the drift rare. A repo's purpose clears that bar even though `package.json`'s description also states it; its dependency versions or script list don't.
 
 State each remaining rule as a compact statement. Add one `Why:` line only when the rule requires judgment on a case the text doesn't explicitly enumerate — the rationale is what lets that judgment generalize to the new case; omit it for an arbitrary convention with no judgment call (e.g. commit message casing). Add a pair of examples side by side when a boundary is easier to see than to describe — correct vs. incorrect for what a rule says, bloated vs. compact for how it's written.
 
@@ -72,7 +74,8 @@ Home (`~/.claude/CLAUDE.md` and `~/.claude/skills/`) loads for one user, on ever
 A project's CLAUDE.md loads for anyone who opens that repo, including someone with no home config at all.
 
 - Write it to read the same and hold up for any user, on any machine — assume zero memory of any session, `~/.claude`, or other personal source.
-- It carries a concern with no home equivalent: orienting a fresh session to a repo it has never seen. Below the opening line, lead with the repo's purpose (the one fact no source file states directly, and README doesn't substitute for it — don't assume it'll get read); note stack/language only when it isn't obvious from the file layout; state where each concern's config actually lives (can't be reliably guessed); surface load-bearing gotchas, ordered by importance (above).
+- It carries a concern with no home equivalent: orienting a fresh session to a repo it has never seen. Below the opening line, lead with the repo's purpose (README doesn't substitute for it — don't assume it'll get read); note stack/language only when it isn't obvious from the file layout; state where a concern's config lives only when it can't be guessed from the tool's standard file name (e.g. two tsconfig files with different jobs); surface load-bearing gotchas, ordered by importance (above).
+- Keep that orientation a map, not the territory: say what exists and where to look, only where a directory listing wouldn't already make it obvious, and leave how it works to the files themselves. "`src/cli/commands/` holds one yargs command per file" is map; "each command exports a `createXxxCommand()` factory taking injected streams" is territory, picked up by reading the file anyway.
 
 ## Scoping Skills by Trigger
 
