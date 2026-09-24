@@ -113,6 +113,24 @@ Name and description are all that's visible before a skill loads, so the descrip
 When in doubt, write the trigger wide — this is about the trigger's phrasing, not the skill's scope: a wide trigger over tightly scoped content, never a grab-bag skill.
 Why: a skill loading when it wasn't needed costs some context, while a skill missing when it was needed costs the guidance entirely — the worse failure, until there's evidence of over-triggering actually causing harm.
 
+Keep `SKIP` about this skill's own content, not another skill's name. It exists to stop this skill from firing on a case that resembles the trigger but where its content would misfire — not to redirect to wherever a different topic is actually handled. Before writing one, check that the excluded case isn't already distinguished by the trigger's own wording (a different named tool, a different named action); if it is, the skill was never going to fire there and the exclusion guards against nothing. A cross-reference to another skill is a different kind of statement — see Linking Skills and CLAUDE.md below for where that belongs.
+
 ## Skill Loading Isn't Guaranteed
 
-Skill loading is a judgment call the model makes each turn from the listing, not something the harness guarantees — so a well-placed skill can still go unloaded in a given session. This is a real cost to weigh in the placement test above, not a reason to preemptively add reinforcement everywhere; only add an explicit pointer for a specific case once it's actually observed failing in practice.
+Skill loading is a judgment call the model makes each turn from the listing, not something the harness guarantees — so a well-placed skill can still go unloaded in a given session. This is a real cost to weigh in the placement test above, not a reason to widen every trigger indefinitely. A link is the other way to compensate for it — see Linking Skills and CLAUDE.md below for when to raise one.
+
+## Linking Skills and CLAUDE.md
+
+A link — CLAUDE.md pointing at a skill, or one skill pointing at another — exists to get content into context that skill loading alone might miss. Its only job is unlocking something not already there.
+
+Point a link only at something conditionally loaded: CLAUDE.md → skill, or skill → skill. Never skill → CLAUDE.md.
+Why: CLAUDE.md is already loaded unconditionally within its scope, so pointing at it from a skill restates something already in context instead of surfacing something new.
+
+Write a link inline in the body, at the specific point that needs it — never in the frontmatter `description` or `SKIP`.
+Why: `description` and `SKIP` exist to decide whether to load the skill at all; a cross-reference answers a different question — what to also read once it's loaded — and folding the two together makes the trigger harder to judge at a glance.
+
+Scope a link to the specific sub-action that needs it, not the whole trigger surface it's attached to.
+Example: a skill covering both editing and reviewing a file may only need a linked skill's content for the editing case — write the link against that case, not the skill as a whole.
+
+Propose a link whenever a skill or CLAUDE.md is being written, created, or updated: look at what the change touches and surface any other skill whose content plausibly applies. Proposing isn't adding — it still waits for explicit approval like any other edit — so it doesn't need a miss to have already happened; noticing the possibility is reason enough to raise it.
+Why: proposing costs nothing but a suggestion, while a skill silently failing to load costs the guidance entirely — so the bar for raising a link should be much lower than the bar for keeping one.
