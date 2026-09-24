@@ -3,6 +3,8 @@ name: lefthook-facts
 description: Reference facts about Lefthook (lefthook.dev) git hook manager configuration — hook-level and job-level options, and what piped/parallel/fail_on_changes actually do. TRIGGER - editing/reviewing a lefthook.yaml (or lefthook.yml/.lefthook.yaml) file, or discussing Lefthook hooks, jobs, or pre-commit tooling built on Lefthook.
 ---
 
+When writing or changing a value in the file, also follow `yaml-conventions`.
+
 ## Hook-Level Options
 
 - `piped: true` — jobs run sequentially in listed order, stopping at the first failure. Despite the name it does **not** pipe one job's stdout into the next job's stdin.
