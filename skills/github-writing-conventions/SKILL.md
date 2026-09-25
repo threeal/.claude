@@ -50,3 +50,6 @@ Omit the test plan entirely unless a human has to verify something by hand — s
 - Repo description: capitalize the first letter, and end with no period or other punctuation.
 
 A repo description is a single tagline, a sentence fragment rather than a full sentence. Commas can lightly join related qualities (`Fast, minimal HTTP router for Go`), and one `-` or `—` can join a name to a clarifying clause (`Zod — TypeScript-first schema validation`), but don't stack more than one separator. No emoji.
+
+These rules stop at the About text. A README opener is separate prose — no length limit, and its job is saying what the project actually does rather than fitting a tagline — so editing one is never a reason to bring the other in line with it.
+Why: the About text renders stripped of all surrounding context — sidebar, search results, social previews — which is what forces it into a single tagline; a README opener is read inside the project, with everything else there for context, so it carries none of those constraints.
