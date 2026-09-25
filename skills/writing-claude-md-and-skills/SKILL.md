@@ -91,13 +91,13 @@ Why: a skill's one-line description sits in the always-injected skill listing wh
 
 Judge "would always fire together" by the actual content, not by how similar or different the triggers sound:
 
-- `lefthook-facts` and `github-actions-facts` sound like the same topic ("editing a YAML CI config") but share no real content, so they're correctly kept separate.
+- `lefthook-conventions` and `github-actions-facts` sound like the same topic ("editing a YAML CI config") but share no real content, so they're correctly kept separate.
 - This skill is the mirror case: "editing home CLAUDE.md" and "editing a project's CLAUDE.md" sound like different triggers, but once decomposed, most of the content — the placement test, the importance definition, and the writing principle above — is identical between them. Only the "Home vs. Project" section above is genuinely scope-specific, so they're merged into one skill instead of staying split.
 
 Naming a brand-new skill is the same judgment made earlier, before there's a second skill to weigh it against: scope its name to the surface its trigger covers, not to the one rule that prompted it.
 Why: name and description are all that's visible before a skill loads, so a name scoped to one rule suppresses loading even behind a wide trigger, and leaves the next unrelated rule about that surface with nowhere to go but a second skill matching the same files.
 
-Test it while naming, since there's no sibling yet to check it against: would an unrelated second rule about the same activity already fit under this name? `yaml-conventions` was nearly named `yaml-quoting-conventions` — scoped to the one rule that prompted it — before a rename caught it. The subject widens, not the content: `lefthook-facts` and `github-actions-facts` still stay separate from `yaml-conventions` despite all three firing on YAML files, since none of their content would ever fire together.
+Test it while naming, since there's no sibling yet to check it against: would an unrelated second rule about the same activity already fit under this name? `yaml-conventions` was nearly named `yaml-quoting-conventions` — scoped to the one rule that prompted it — before a rename caught it. The subject widens, not the content: `lefthook-conventions` and `github-actions-facts` still stay separate from `yaml-conventions` despite all three firing on YAML files, since none of their content would ever fire together.
 
 ## Writing a Skill's Frontmatter
 

@@ -1,6 +1,6 @@
 ---
-name: lefthook-facts
-description: Reference facts about Lefthook (lefthook.dev) git hook manager configuration — hook-level and job-level options, and what piped/parallel/fail_on_changes actually do. TRIGGER - editing/reviewing a lefthook.yaml (or lefthook.yml/.lefthook.yaml) file, or discussing Lefthook hooks, jobs, or pre-commit tooling built on Lefthook.
+name: lefthook-conventions
+description: Lefthook (lefthook.dev) git hook manager configuration — hook-level and job-level options, what piped/parallel/fail_on_changes actually do, and this repo's stage_fixed preference. TRIGGER - editing/reviewing a lefthook.yaml (or lefthook.yml/.lefthook.yaml) file, or discussing Lefthook hooks, jobs, or pre-commit tooling built on Lefthook.
 ---
 
 When writing or changing a value in the file, also follow `yaml-conventions`.
@@ -19,6 +19,11 @@ When writing or changing a value in the file, also follow `yaml-conventions`.
 - `run` — an inline shell command.
 - `script` — an external script file instead, paired with `runner:` to pick the interpreter.
 - `glob` / `root` / `exclude` — scope which files the job's command sees.
-- `stage_fixed` — re-stages files the job modified. Works only for `pre-commit` hooks, and pairs naturally with `fail_on_changes: ci`, so local runs auto-fix and stage while CI still fails on the same diff.
+- `stage_fixed` — re-stages files the job modified. Works only for `pre-commit` hooks.
+
+## Conventions
+
+Don't use `stage_fixed`. Prefer `fail_on_changes: always` (or `ci`), and treat a failed run plus manual re-stage as the review step, not friction to design away.
+Why: auto-staging a formatter's edits skips the checkpoint of the user seeing what changed before it lands in the commit.
 
 Source: https://lefthook.dev/configuration/
