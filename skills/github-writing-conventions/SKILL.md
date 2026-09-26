@@ -1,6 +1,6 @@
 ---
 name: github-writing-conventions
-description: Conventions for GitHub-facing text — issue and PR narration, title casing, cross-repo references, and repo descriptions. TRIGGER - about to run `gh issue create`, `gh pr create`, `gh repo edit --description`, or otherwise write an issue/PR body, a repo's About description, or a comment referencing another repo's issue/PR.
+description: Conventions for GitHub-facing text — issue and PR narration, title casing, cross-repo references, repo descriptions, and repo topics. TRIGGER - about to run `gh issue create`, `gh pr create`, `gh repo edit --description`, `gh repo edit --add-topic`, `gh repo edit --remove-topic`, or otherwise write an issue/PR body, a repo's About description or topics, or a comment referencing another repo's issue/PR.
 ---
 
 This is on top of `prose-conventions`'s general rules for writing and editing prose.
@@ -53,3 +53,13 @@ A repo description is a single tagline, a sentence fragment rather than a full s
 
 These rules stop at the About text. A README opener is separate prose — no length limit, and its job is saying what the project actually does rather than fitting a tagline — so editing one is never a reason to bring the other in line with it.
 Why: the About text renders stripped of all surrounding context — sidebar, search results, social previews — which is what forces it into a single tagline; a README opener is read inside the project, with everything else there for context, so it carries none of those constraints.
+
+## Topics
+
+Add a topic only for the repo's own purpose, and the language/framework/stack that purpose runs on.
+Why: topics exist for people to find and understand a repo at a glance, not to inventory everything it uses.
+
+A supporting tool or dependency — a test framework, a git hooks manager, a formatter, a CI provider — doesn't earn a topic just because the repo relies on it internally, no matter how central it is to the build. It earns one only when it's what the repo is about: `lefthook` on `setup-lefthook-action`, not on a repo that merely runs Lefthook as its hook manager.
+
+Topics don't need to match a parent or sibling repo's list, even under `repo-lineage-uniformity`.
+Why: that skill keeps shared config and docs uniform across a lineage, but a repo's topics describe itself, not its ancestry.
