@@ -5,5 +5,8 @@
     "defaultMode": "auto"
   },
   "theme": "dark",
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
+  }
 }
