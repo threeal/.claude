@@ -9,6 +9,7 @@ Repos under https://github.com/threeal aren't standalone — each can derive fro
 
 ```
 project-starter -> nodejs-starter
+project-starter -> rust-starter
 nodejs-starter -> action-starter
 nodejs-starter -> react-starter
 action-starter -> setup-lefthook-action
