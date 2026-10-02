@@ -5,7 +5,10 @@ description: Conventions for structuring and configuring Vitest test files — c
 
 ## Concurrency
 
-Default to `concurrent: true` for suites and tests, especially async ones. Non-concurrent should be the exception — shared mutable state, an ordering dependency — not the default.
+Default to `concurrent: true` for suites and tests that contain async work. Non-concurrent should be the exception there — shared mutable state, an ordering dependency — not the default.
+
+Leave the option off when every test in scope is synchronous.
+Why: Vitest runs a concurrent group with `Promise.all`, so tests only overlap at `await` points — a synchronous test runs to completion before the next one starts. The option then has no effect, yet still tells a reader the tests overlap and must not share state.
 
 ## Grouping
 
