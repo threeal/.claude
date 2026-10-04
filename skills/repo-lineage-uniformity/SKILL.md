@@ -8,6 +8,7 @@ Repos under https://github.com/threeal aren't standalone — each can derive fro
 ## The Known Graph
 
 ```
+project-starter -> .claude
 project-starter -> nodejs-starter
 project-starter -> rust-starter
 nodejs-starter -> action-starter
