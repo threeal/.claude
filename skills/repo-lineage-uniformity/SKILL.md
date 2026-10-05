@@ -12,6 +12,7 @@ project-starter -> .claude
 project-starter -> nodejs-starter
 project-starter -> rust-starter
 nodejs-starter -> action-starter
+nodejs-starter -> ghakit
 nodejs-starter -> react-starter
 action-starter -> setup-lefthook-action
 action-starter -> setup-pnpm-action
