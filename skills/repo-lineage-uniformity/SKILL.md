@@ -26,6 +26,8 @@ This list is deliberately incomplete, and extending it is a separate task from t
 
 Shared elements — config files, documentation wording/style/tone, structural ordering, and similar generic conventions — should be implemented identically between a repo and its parent, unless a specific part was deliberately chosen to differ. This doesn't extend to genuinely repo-specific content with no counterpart elsewhere, such as `react-starter`'s React setup having no equivalent in `action-starter`.
 
+Versions of dependencies and tools aren't a shared element either. They follow `dependency-conventions`'s latest-version rule rather than the parent, so a child being ahead of its parent on a version is expected, not drift to correct.
+
 ## Default: Follow the Parent
 
 Adopt whatever convention the immediate parent already uses, comparing against that parent alone.
