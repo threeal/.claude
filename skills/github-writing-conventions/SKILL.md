@@ -30,6 +30,9 @@ Why: GitHub resolves it against the rendering repo, pointing at whatever issue o
 
 Write an issue as narration led by background and rationale — what problem or gap prompted it, what's missing, confusing, or broken, and why that matters. The implementation gets barely any space: a sentence or two near the end, or folded into the closing line.
 
+When the issue adopts a change already tracked in another repo — typically a repo following up on its template — link that repo's issue or PR and don't restate its background or rationale. The narration goes to what's specific to this repo: why the change matters here, or how it differs.
+Why: like a PR's closing keyword, the link puts the original reasoning one click away; restating it buries the part only this issue can say.
+
 Prose is the default shape for that narrative, since most issues are one coherent problem description rather than a set of disjoint facts. Use a bullet list, code block, table, or section header wherever it separates genuinely distinct content more clearly than prose would — ordered steps, a short ranking, a before/after comparison, a snippet. The bar is whether the structure earns its place.
 
 ## Pull Requests
