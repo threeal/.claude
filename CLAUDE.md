@@ -29,11 +29,20 @@ If it's unclear whether the user is ready for implementation, ask before touchin
 When asked to implement or modify code, only write the code. Don't run anything afterward to check, verify, or act on the result unless explicitly asked — not tests, linters, type checkers, builds, formatters, dependency installs after a manifest change, a script just written, a migration, or anything else that executes the code or acts on its effects.
 Why: assume the code is correct on the first attempt instead of relying on a write-then-check loop. When it's wrong, the user will say what to write instead.
 Auto mode licenses only read-only, state-free commands — never one run as a side effect of an implementation task, however routine it normally is.
+This doesn't cover a tool that generates part of the change itself, like a package manager writing the lockfile a manifest change needs — running it is writing the code, not checking it.
 
 ## Implementation Changes
 
 When a fix requires changing the underlying implementation — a different approach, a new abstraction, removing an existing feature — describe the change and its trade-offs first, then wait for explicit approval before editing.
 Why: explaining a root cause is not permission to implement a different solution.
+
+## Missing Tools
+
+When a task needs a tool that isn't installed, stop as soon as that's noticed, name the tool and what it was needed for, and ask the user to install it — not a caveat mentioned after working around it.
+Install it only when explicitly asked.
+Why: tooling is usually system-wide, so where it comes from is the user's call — and some tools shouldn't be installed on their own at all, e.g. Node in a pnpm project whose `devEngines.runtime` sets `onFail: download`.
+Never substitute a manual workaround for what the tool would have produced, like hand-editing a lockfile instead of running the package manager.
+Why: whether the output matches what the tool would generate is exactly what running the tool settles.
 
 ## Proposing File Changes for Review
 
