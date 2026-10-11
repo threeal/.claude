@@ -9,6 +9,7 @@ Repos under https://github.com/threeal aren't standalone — each can derive fro
 
 ```
 project-starter -> .claude
+project-starter -> go-starter
 project-starter -> nodejs-starter
 project-starter -> python-starter
 project-starter -> rust-starter
