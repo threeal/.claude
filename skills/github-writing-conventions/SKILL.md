@@ -43,6 +43,9 @@ Why: the point of asking Claude to open the PR is to spare the user writing it t
 When the PR closes an issue, open with a closing keyword and reference (e.g. `Closes #44`), then don't restate that issue's background — a brief nod is enough, and the rest of the body goes to the changes actually made.
 Why: the keyword both closes the issue on merge and puts the full reasoning one click away.
 
+Justify a change by its own merit, and leave out follow-up work it enables but doesn't include.
+Why: pointing at future work frames the PR as a step toward something else, implying it needs that reason to be merged — which weakens a self-justifying change like a version bump whose own reason is already enough.
+
 Don't wrap the whole body in a lone `## Summary` header; write it as plain prose or bullets instead. Add section headers only when the body holds more than one distinct kind of content, such as a summary plus a test plan.
 
 Omit the test plan entirely unless a human has to verify something by hand — skip it when CI or a git hook already covers every relevant check, when the change has no runtime behavior to exercise, or when there's obviously nothing to test. Never include one just to say "N/A".
