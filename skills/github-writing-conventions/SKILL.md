@@ -1,6 +1,6 @@
 ---
 name: github-writing-conventions
-description: Conventions for GitHub-facing text — issue and PR narration, title casing, cross-repo references, repo descriptions, and repo topics. TRIGGER - about to run `gh issue create`, `gh pr create`, `gh repo edit --description`, `gh repo edit --add-topic`, `gh repo edit --remove-topic`, or otherwise write an issue/PR body, a repo's About description or topics, or a comment referencing another repo's issue/PR.
+description: Conventions for GitHub-facing text — issue and PR narration, screenshots, title casing, cross-repo references, repo descriptions, and repo topics. TRIGGER - about to run `gh issue create`, `gh pr create`, `gh repo edit --description`, `gh repo edit --add-topic`, `gh repo edit --remove-topic`, or otherwise write an issue/PR body, a repo's About description or topics, or a comment referencing another repo's issue/PR.
 ---
 
 This is on top of `prose-conventions`'s general rules for writing and editing prose.
@@ -49,6 +49,16 @@ Why: pointing at future work frames the PR as a step toward something else, impl
 Don't wrap the whole body in a lone `## Summary` header; write it as plain prose or bullets instead. Add section headers only when the body holds more than one distinct kind of content, such as a summary plus a test plan.
 
 Omit the test plan entirely unless a human has to verify something by hand — skip it when CI or a git hook already covers every relevant check, when the change has no runtime behavior to exercise, or when there's obviously nothing to test. Never include one just to say "N/A".
+
+## Screenshots
+
+Neither `gh` nor the GitHub API can upload images into an issue or PR body or comment, so screenshots have to be dragged into the GitHub editor by the user. Make that step mechanical:
+
+- Save the image files in a `.screenshots/` directory at the repo root, named for what each one shows (`before-login.png`, `after-login.png`), and never commit them.
+- In the body or comment, put a visible placeholder wherever each image belongs, naming its exact file — e.g. `**[Drop .screenshots/before-login.png here]**`.
+- After opening the issue or PR, tell the user its placeholders are waiting for images, and that `.screenshots/` can be deleted once they're placed.
+
+Why: the dot-prefixed directory stays out of normal listings and goes away in one delete, and a placeholder naming its file leaves no guessing about which image goes where.
 
 ## Casing and Punctuation
 
