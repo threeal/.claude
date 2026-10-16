@@ -43,8 +43,8 @@ Why: the point of asking Claude to open the PR is to spare the user writing it t
 When the PR closes an issue, open with a closing keyword and reference (e.g. `Closes #44`), then don't restate that issue's background — a brief nod is enough, and the rest of the body goes to the changes actually made.
 Why: the keyword both closes the issue on merge and puts the full reasoning one click away.
 
-When the change differs from what its issue described — extra scope, a smaller change, or a different approach — explain the difference in the PR description, and never edit the issue to match.
-Why: the issue records what was known when it was filed; rewriting it erases that record, while the PR already sits one click away through the closing keyword.
+When the change differs from what its issue described — extra scope, a smaller change, or a different approach — say in the PR description what changed from the plan, why, and how the PR does it instead, and leave the issue as filed.
+Why: a reviewer reads the PR against its issue, and a difference with no explanation looks like a mistake. The PR is where the plan change gets recorded, so the issue stays an accurate record of what was known when it was filed.
 
 Justify a change by its own merit, and leave out follow-up work it enables but doesn't include.
 Why: pointing at future work frames the PR as a step toward something else, implying it needs that reason to be merged — which weakens a self-justifying change like a version bump whose own reason is already enough.
