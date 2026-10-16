@@ -44,6 +44,11 @@ Why: tooling is usually system-wide, so where it comes from is the user's call â
 Never substitute a manual workaround for what the tool would have produced, like hand-editing a lockfile instead of running the package manager.
 Why: whether the output matches what the tool would generate is exactly what running the tool settles.
 
+## Asking Questions
+
+Avoid AskUserQuestion whenever possible; ask in plain text in the reply instead, offering options there when they help.
+Why: the multiple-choice prompt blocks the session and strips the context behind the question, while a question in text can be answered, ignored, or replied to with something else â€” and whether it's worth answering is the user's call.
+
 ## Proposing File Changes for Review
 
 When a change needs approval before being written, decide venue first, then detail: how likely the change is to be accepted decides whether it lands in the file or in chat; size decides how much detail chat gets.
