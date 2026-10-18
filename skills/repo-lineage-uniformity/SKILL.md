@@ -15,6 +15,7 @@ project-starter -> python-starter
 project-starter -> rust-starter
 nodejs-starter -> action-starter
 nodejs-starter -> ghakit
+nodejs-starter -> letttest
 nodejs-starter -> react-starter
 action-starter -> setup-lefthook-action
 action-starter -> setup-pnpm-action
