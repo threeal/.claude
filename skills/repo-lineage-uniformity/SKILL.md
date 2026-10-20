@@ -36,6 +36,8 @@ Adopt whatever convention the immediate parent already uses, comparing against t
 Why: routine work shouldn't cost a scan of siblings, cousins, and the rest of the graph.
 This is a default, not an obligation — a child can challenge its parent instead, once the challenge is validated.
 
+When a child has fallen behind changes its parent made since the last sync, catch it up following `repo-lineage-sync`.
+
 ## Challenging a Parent
 
 Before raising a challenge, validate it by scanning outward — the parent's own parent, other ancestors, and siblings, as far as is relevant — and raise it only if it survives that check.
