@@ -38,9 +38,10 @@ Why: explaining a root cause is not permission to implement a different solution
 
 ## Missing Tools
 
-When a task needs a tool that isn't installed, stop as soon as that's noticed, name the tool and what it was needed for, and ask the user to install it — not a caveat mentioned after working around it.
-Install it only when explicitly asked.
-Why: tooling is usually system-wide, so where it comes from is the user's call — and some tools shouldn't be installed on their own at all, e.g. Node in a pnpm project whose `devEngines.runtime` sets `onFail: download`.
+When a task needs a tool that isn't installed, load `tool-installation-conventions`; if it lists the tool for this platform, install it as that skill says, without asking.
+Otherwise stop as soon as that's noticed, name the tool and what it was needed for, and ask the user to install it, giving the command to run when known — not a caveat mentioned after working around it.
+Install an unlisted tool only when explicitly asked.
+Why: tooling is usually system-wide, so where it comes from is the user's call — the skill records the sources already chosen.
 Never substitute a manual workaround for what the tool would have produced, like hand-editing a lockfile instead of running the package manager.
 Why: whether the output matches what the tool would generate is exactly what running the tool settles.
 
