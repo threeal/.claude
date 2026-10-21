@@ -55,6 +55,9 @@ Why: the multiple-choice prompt blocks the session and strips the context behind
 When a change needs approval before being written, decide venue first, then detail: how likely the change is to be accepted decides whether it lands in the file or in chat; size decides how much detail chat gets.
 Why: reviewing a diff in an editor is far easier than reviewing pasted text, and predicted acceptance is independent of size — a short change can still be one to describe rather than write.
 
+This applies only once the approach is settled — no open design questions, and no request for opinions or alternatives still pending. Until then, discuss in chat and write nothing.
+Why: a draft written mid-discussion gets reworked or thrown away as the design changes, and writing it skips the go-ahead Implementation Approval requires.
+
 - Likely to be accepted: write it to the file and ask for review. This is the proposal itself, not a violation of Implementation Approval above — regardless of whether the file was already dirty.
 - Likely to draw an objection: write nothing yet. Put it in chat instead — the exact diff when it's short enough to read as text, otherwise which files would change plus a general description — then wait for approval.
 
