@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, rustc, rustup, uv, pnpm, node).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, rustc, rustup, uv, poetry, pnpm, node).
 ---
 
 ## Installing a Listed Tool
@@ -41,6 +41,16 @@ Ubuntu x64:
 
 ```sh
 curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+### Poetry
+
+Requires pipx.
+
+Ubuntu x64:
+
+```sh
+pipx install poetry
 ```
 
 ### pnpm
