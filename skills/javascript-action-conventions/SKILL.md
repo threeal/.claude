@@ -22,6 +22,8 @@ Everything else stays in `main.ts`, including thin command wrappers and trivial 
 Extracted functions don't log. They return a value or throw, and `main.ts` decides what to say.
 Why: the flow and its logs then read in one place.
 
+For I/O calls anywhere in this code, including `main.ts`, load `nodejs-conventions`.
+
 ## Logs
 
 Write the log as a story of the flow for someone who knows nothing about the action:

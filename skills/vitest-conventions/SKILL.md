@@ -13,6 +13,8 @@ Why: concurrent tests there run at the same time in the same iframe, sharing one
 Leave the option off when every test in scope is synchronous.
 Why: Vitest runs a concurrent group with `Promise.all`, so tests only overlap at `await` points — a synchronous test runs to completion before the next one starts. The option then has no effect, yet still tells a reader the tests overlap and must not share state.
 
+The same applies to sync I/O in the code under test: it blocks other tests from running while it runs, even in an async test. When writing or editing that code, load `nodejs-conventions`.
+
 ## Grouping
 
 Group a function's unit tests under a `describe` named after the function, even when the file currently covers only one function.
