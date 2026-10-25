@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, rustc, rustup, uv, poetry, pnpm, node).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, rustc, rustup, uv, poetry, pnpm, node, dprint).
 ---
 
 ## Installing a Listed Tool
@@ -16,10 +16,12 @@ If the tool, the platform, or a prerequisite (e.g. an apt package needing `sudo`
 Check the tool in a fresh interactive shell, which reads the shell config the way a new terminal does:
 
 ```sh
-bash -ic 'command -v <tool>'
+fish -ic 'command -v <tool>'
 ```
 
-If it isn't found, fix the shell setup the installer left — its output usually says where it added PATH or what to add — then check again, and suggest adding the fix to that tool's entry below.
+If fish can't find it, try `bash -ic 'command -v <tool>'`. Fish is launched from bash, so a PATH set in the bash config also reaches fish.
+
+If neither finds it, fix the shell setup the installer left — its output usually says where it added PATH or what to add — then check again, and suggest adding the fix to that tool's entry below.
 
 Keep working without waiting on a restart. The current session's commands still run on the environment from before the install, so make the tool available within each command that needs it, without touching anything global — e.g. `. "$HOME/.cargo/env" && cargo build`. Once the task is done, suggest the user restart the shell and Claude Code.
 
@@ -69,4 +71,19 @@ Ubuntu x64:
 
 ```sh
 pnpm runtime set node lts -g
+```
+
+### dprint
+
+Ubuntu x64:
+
+```sh
+curl -fsSL https://dprint.dev/install.sh | sh
+```
+
+The installer doesn't touch any shell config, so put dprint on the PATH in `~/.config/fish/conf.d/dprint.fish`:
+
+```fish
+set -gx DPRINT_INSTALL "$HOME/.dprint"
+fish_add_path -g "$DPRINT_INSTALL/bin"
 ```
