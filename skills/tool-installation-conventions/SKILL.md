@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, rustc, rustup, uv, poetry, pnpm, node, dprint).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, dprint, node, pnpm, poetry, rustc, rustup, uv).
 ---
 
 ## Installing a Listed Tool
@@ -29,6 +29,49 @@ That workaround belongs only to the session that did the install. In a later ses
 
 ## Tools
 
+### dprint
+
+Ubuntu x64:
+
+```sh
+curl -fsSL https://dprint.dev/install.sh | sh
+```
+
+The installer doesn't touch any shell config, so put dprint on the PATH in `~/.config/fish/conf.d/dprint.fish`:
+
+```fish
+set -gx DPRINT_INSTALL "$HOME/.dprint"
+fish_add_path -g "$DPRINT_INSTALL/bin"
+```
+
+### Node
+
+Requires pnpm; install it first if it's missing too.
+
+Ubuntu x64:
+
+```sh
+pnpm runtime set node lts -g
+```
+
+### pnpm
+
+Ubuntu x64:
+
+```sh
+curl -fsSL https://get.pnpm.io | sh -
+```
+
+### Poetry
+
+Requires pipx.
+
+Ubuntu x64:
+
+```sh
+pipx install poetry
+```
+
 ### Rust (cargo, rustc, rustup)
 
 Ubuntu x64:
@@ -43,47 +86,4 @@ Ubuntu x64:
 
 ```sh
 curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-### Poetry
-
-Requires pipx.
-
-Ubuntu x64:
-
-```sh
-pipx install poetry
-```
-
-### pnpm
-
-Ubuntu x64:
-
-```sh
-curl -fsSL https://get.pnpm.io | sh -
-```
-
-### Node
-
-Requires pnpm; install it first if it's missing too.
-
-Ubuntu x64:
-
-```sh
-pnpm runtime set node lts -g
-```
-
-### dprint
-
-Ubuntu x64:
-
-```sh
-curl -fsSL https://dprint.dev/install.sh | sh
-```
-
-The installer doesn't touch any shell config, so put dprint on the PATH in `~/.config/fish/conf.d/dprint.fish`:
-
-```fish
-set -gx DPRINT_INSTALL "$HOME/.dprint"
-fish_add_path -g "$DPRINT_INSTALL/bin"
 ```
