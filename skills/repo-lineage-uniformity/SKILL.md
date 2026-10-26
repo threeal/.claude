@@ -13,6 +13,7 @@ project-starter -> go-starter
 project-starter -> nodejs-starter
 project-starter -> python-starter
 project-starter -> rust-starter
+project-starter -> threeal
 nodejs-starter -> action-starter
 nodejs-starter -> ghakit
 nodejs-starter -> letttest
