@@ -1,6 +1,6 @@
 ---
 name: coding-conventions
-description: Language-agnostic conventions for writing code, such as deciding what a function, class, or module owns and what to name it. TRIGGER - writing, editing, or refactoring code in any language.
+description: Language-agnostic conventions for writing code, such as deciding what a function, class, or module owns, what to name it, and where to decide a condition. TRIGGER - writing, editing, or refactoring code in any language.
 ---
 
 ## Language-Specific Conventions
@@ -36,3 +36,13 @@ Example: a function returning a predicate that tells whether a version matches.
 
 When a unit's scope or name turns out wrong, redraw its boundary or rename it: move the message to the caller, split or merge the unit, or rename it and its helpers. Don't patch around it by rewording a message in place or explaining the name in a comment.
 Why: a patch leaves the unit claiming to be something it isn't, so the next caller trips on it again.
+
+## Branching
+
+Decide each condition once. When a value depends on the same condition that the code right after it branches on, set the value inside each branch rather than computing it first with a ternary.
+Why: deciding it twice makes a reader check that both checks really match, and both must change together whenever the condition does.
+
+Example: a tag path and a range path, each with its own label.
+
+- Incorrect: `const label = isTag ? "tagged" : "satisfying";`, then `if (isTag) { … } else { … }`.
+- Correct: `if (isTag) { label = "tagged"; … } else { label = "satisfying"; … }`, with each path's value next to the code that uses it.
