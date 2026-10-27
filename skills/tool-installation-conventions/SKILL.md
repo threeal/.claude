@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, dprint, node, pnpm, poetry, rustc, rustup, uv).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, node, pnpm, poetry, rustc, rustup, uv).
 ---
 
 ## Installing a Listed Tool
@@ -28,6 +28,16 @@ Keep working without waiting on a restart. The current session's commands still 
 That workaround belongs only to the session that did the install. In a later session, a tool that's installed but not found means its shell setup is broken — fix that instead.
 
 ## Tools
+
+### cargo-tarpaulin
+
+Requires Rust; install it first if it's missing too.
+
+Ubuntu x64:
+
+```sh
+cargo install cargo-tarpaulin
+```
 
 ### dprint
 
