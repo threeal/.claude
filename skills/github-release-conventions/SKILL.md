@@ -35,19 +35,37 @@ Create the tag as a signed annotated tag whose message is the same `Version X.Y.
 ```
 ## What's Changed
 
-### New
+### Breaking Changes
 
-- Added ...
+- **Label** — what users must change, and why ...
+
+### New Features
+
+- **Label** — the action now ...
 
 ### Improvements
 
-- Made ..., so ...
+- **Label** — ... is now ..., so ...
+
+### Bug Fixes
+
+- **Label** — ... no longer ...
 
 ### Dependency Updates
 
 - `package` bumped to 1.2.3
 
+### Development Changes
+
+- **Label** — the bundler is now ...
+
 **Full Changelog**: https://github.com/<owner>/<repo>/compare/v1.2.2...v1.2.3
 ```
 
-Omit any `###` section with nothing in it. Write each `New` and `Improvements` entry as one past-tense sentence saying what changed and, when it isn't obvious, what that means for the user.
+Omit any `###` section with nothing in it.
+
+Write every entry except dependency bumps as a short bold label naming the change, an em dash, then a present-tense description of how things behave now and, when it isn't obvious, what that means for the reader.
+
+Put a fixed defect under `Bug Fixes`, never `Improvements`, so a patch release shows what it fixed and a minor release shows whether it's worth upgrading for.
+
+List only shipped dependencies under `Dependency Updates`. Tooling changes that don't reach users — bundler, CI, lint rules, devDependency bumps — go under `Development Changes`, which never on its own warrants a release (see Deciding Whether to Release above).
