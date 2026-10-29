@@ -27,6 +27,8 @@ Before porting, judge whether the parent's pattern actually fits the child. If i
 Open an issue only when the parent had one for the change; otherwise go straight to a PR.
 
 - One child issue can cover several related parent issues, or one parent issue can be split across several.
+- When the parent's issue follows a change from further up the lineage, link the issue where the change started, not the parent's: copy the parent's issue, including that link, and change only repo-specific details, like the current version in a quoted field.
+  Why: the parent's issue usually adds little beyond a pointer to the ancestor's, so linking it only adds another click before the actual reasoning.
 - Where the parent's reasoning doesn't hold in the child — such as an argument that only makes sense for a template — write the child's own reasoning instead.
 
 Draft each issue in chat for review, and open it only once approved. Then implement on a new branch made from a freshly pulled `main`, and stop there for review.
