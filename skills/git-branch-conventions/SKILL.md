@@ -9,6 +9,8 @@ Name a branch after the specific change it carries, like a short version of its 
 
 - Correct: `default-version-to-tag`, for a PR titled "Default the version to a tag such as `latest` when it's not given"
 - Incorrect: `version-tags`, for the same PR
+- Correct: `bump-setup-pnpm-action-v2.1.0`, for a PR bumping `setup-pnpm-action` to v2.1.0
+- Incorrect: `bump-setup-pnpm-action`, for the same PR, since it fits every later bump too
 
 Why: the name outlives the branch, since a merged PR keeps showing `merged … from <branch>` and offers to restore it. A topic name fits later work too, and once reused, `gh pr list --head <branch>` returns unrelated PRs and restoring the old branch collides with the new one.
 
