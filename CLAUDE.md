@@ -45,6 +45,12 @@ Why: tooling is usually system-wide, so where it comes from is the user's call �
 Never substitute a manual workaround for what the tool would have produced, like hand-editing a lockfile instead of running the package manager.
 Why: whether the output matches what the tool would generate is exactly what running the tool settles.
 
+## Blocked Permissions
+
+At the first step blocked by privilege or security — `sudo` asking for a password, a denied tool call, a missing group membership, a locked key — stop there, name the blocker, and give the exact command or action that unblocks it, as `! <command>` when there's one to run (e.g. `! ssh -t user@host sudo reboot`).
+Why: the user always has more privilege than Claude and can unblock it in seconds, while a workaround is usually a weaker substitute for what was asked and may do something they never agreed to.
+An alternative may be mentioned as an option alongside, but never carried out in its place.
+
 ## Asking Questions
 
 Avoid AskUserQuestion whenever possible; ask in plain text in the reply instead, offering options there when they help.
