@@ -14,10 +14,13 @@ Write the whole flow in `main.ts` as one readable script, as if nothing were spl
 
 Pull a part out into its own function only when it earns one:
 
-- It can fail: every failure path lives in a function with its own tests. Success paths stay in `main.ts`, covered by running the action in CI.
+- It can fail in a way worth testing: that failure path lives in a function with its own tests. Success paths stay in `main.ts`, covered by running the action in CI.
 - It repeats: e.g. a `run` helper that logs and runs a command, used by several steps.
 
-Everything else stays in `main.ts`, including thin command wrappers and trivial one-line throws. Inlining a function back is as valid as pulling one out.
+A failure path isn't worth testing when the only ways to test it are ones already avoided — a real external dependency such as an executable or the network, or a mock of one — or when the logic left to test is too trivial to need a test, like a one-line `if (a !== b) throw`. Keep it in `main.ts`, or in its own untested file when it's big enough to deserve one.
+Why: extracting pays off only when what the test would catch outweighs what writing it would cost.
+
+Everything else stays in `main.ts`, including thin command wrappers. Inlining a function back is as valid as pulling one out.
 
 Extracted functions don't log. They return a value or throw, and `main.ts` decides what to say.
 Why: the flow and its logs then read in one place.
