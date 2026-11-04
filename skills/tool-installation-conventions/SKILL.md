@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, node, pnpm, poetry, rustc, rustup, uv).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, node, pnpm, poetry, rustc, rustup, uv).
 ---
 
 ## Installing a Listed Tool
@@ -10,6 +10,9 @@ Why: the listed commands fix where each tool comes from, so every machine gets i
 
 Tell the platform from `/etc/os-release` and `uname -m`.
 If the tool, the platform, or a prerequisite (e.g. an apt package needing `sudo`) isn't covered here, stop: name what's missing, and give the command for the user to run when it's known.
+
+A step that needs `sudo` or other interactive input is the user's to run: give it as one command per step, to run in a separate terminal.
+Why: `! <command>` has no terminal to prompt in, so `sudo` fails there with "a terminal is required to read the password".
 
 ## After Installing
 
@@ -53,6 +56,27 @@ The installer doesn't touch any shell config, so put dprint on the PATH in `~/.c
 set -gx DPRINT_INSTALL "$HOME/.dprint"
 fish_add_path -g "$DPRINT_INSTALL/bin"
 ```
+
+### gh
+
+Ubuntu x64, from GitHub's apt repository. Prepare its keyring and source file in the scratchpad yourself:
+
+```sh
+wget -nv -O githubcli-archive-keyring.gpg https://cli.github.com/packages/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" > github-cli.list
+```
+
+Then give the user the rest, one command at a time, with the scratchpad paths filled in:
+
+```sh
+sudo install -m 644 <scratchpad>/githubcli-archive-keyring.gpg /etc/apt/keyrings/
+sudo install -m 644 <scratchpad>/github-cli.list /etc/apt/sources.list.d/
+sudo apt update
+sudo apt install gh
+gh auth login
+```
+
+Besides finding `gh`, check the login with `gh auth status`.
 
 ### Node
 
