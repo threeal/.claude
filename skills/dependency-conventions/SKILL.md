@@ -17,5 +17,6 @@ This applies to anything with a version, not just npm packages: the `packageMana
 
 - A release still inside pnpm's `minimumReleaseAge` window or Dependabot's cooldown isn't available yet.
 - A peer dependency or an incompatible change can hold a package back.
+- An action that installs tools from manifests bundled with its own releases, like `taiki-e/install-action`, follows its major tag (`@v2`) instead of an exact version. Its releases are mostly manifest updates for unrelated tools, so an exact pin freezes the installed tools and turns each of those releases into a Dependabot PR, while the major tag keeps the installed tools themselves at their latest version.
 
 A library with many outside users could one day justify keeping a lower floor on purpose, but no current project is like that, so treat the latest-version rule as absolute outside the constraints above.
