@@ -13,6 +13,9 @@ Release only when something the repo ships to its users changed:
 Each repo decides for itself, so catching a repo up with a release of its parent in the `repo-lineage-uniformity` graph doesn't warrant a release of its own unless what it ships changed.
 Why: a release with nothing new for its users only adds noise to a version history that's supposed to track what they get.
 
+Before recommending a release, check every dependency and tool against its latest version, looked up as `dependency-conventions` describes — `pnpm outdated` or the ecosystem's equivalent, the GitHub Actions in workflows, the Node.js version, and the `packageManager` field — and list whatever is behind alongside the recommendation, so the user can update or skip each one first.
+Why: skipping an update for a release is the user's call, but only once they know it's outstanding, and Dependabot's open PRs can't tell them: they lag behind new releases and never cover what Dependabot can't bump, like Node.js and pnpm.
+
 ## Discussion
 
 Create every release with `--discussion-category Announcements`, so the release creates its own Announcements discussion, titled after it and linked from it:
