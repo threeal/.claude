@@ -36,7 +36,14 @@ That workaround belongs only to the session that did the install. In a later ses
 
 Requires Rust; install it first if it's missing too.
 
-Ubuntu x64:
+Ubuntu x64, which also needs `pkg-config` and `libssl-dev` from apt to build its OpenSSL dependency.
+Check them with `dpkg -s pkg-config libssl-dev` before starting the build, and if either is missing, give the user this to run first:
+
+```sh
+sudo apt install -y pkg-config libssl-dev
+```
+
+Then:
 
 ```sh
 cargo install cargo-tarpaulin
