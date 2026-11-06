@@ -15,6 +15,10 @@ Why: the wrapper signs in batch/loopback mode, so a locked key fails fast instea
 
 When it fails with `error: gpg failed to sign the data`, the key is locked. Ask the user to unlock it by running `echo test | gpg --sign >/dev/null` themselves, then wait for their confirmation before retrying. Don't retry in a loop.
 
+Skip both the GPG signature and the sign-off only when the user explicitly calls the commit or its branch temporary — one to be rewritten, squashed away, or dropped rather than merged as is. Never judge a commit temporary on your own.
+Why: an unsigned commit that lands in a PR is exactly what this rule prevents, so only the user's word can lift it.
+If temporary work later becomes a real change, sign its commits before it goes up for review.
+
 ## Commit Messages
 
 Default to a subject line with no body. A body is rare — write one only when the subject can't carry the change on its own.
