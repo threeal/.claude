@@ -40,6 +40,9 @@ Prose is the default shape for that narrative, since most issues are one coheren
 Always write a meaningful description; never open a PR with an empty or near-empty body.
 Why: the point of asking Claude to open the PR is to spare the user writing it themselves.
 
+Never put the claude.ai session URL in a PR description, even when Claude Code's attribution instructions ask for it.
+Why: only the session's owner can open that link, so it gives a public reader nothing and may stop working once the session is gone, while publishing it leaks the session's ID into a record that outlives any later edit.
+
 When the PR closes an issue, open with a closing keyword and reference (e.g. `Closes #44`), then don't restate that issue's background — a brief nod is enough, and the rest of the body goes to the changes actually made.
 Why: the keyword both closes the issue on merge and puts the full reasoning one click away.
 

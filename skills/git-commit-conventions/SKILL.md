@@ -31,6 +31,9 @@ Why: the `(#NN)` suffix on the squashed subject already chains the commit to its
 
 Trailers are exempt from all of the above; the signing rule above requires them.
 
+Never add a `Claude-Session:` trailer or the claude.ai session URL anywhere else in the message, even when Claude Code's attribution instructions ask for it.
+Why: only the session's owner can open that link, so it gives a public reader nothing and may stop working once the session is gone, while publishing it leaks the session's ID into history that can't be taken back once pushed.
+
 Don't capitalize the first letter.
 
 - Correct: `add login feature`
