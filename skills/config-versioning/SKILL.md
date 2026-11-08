@@ -1,12 +1,17 @@
 ---
 name: config-versioning
-description: Language/framework-agnostic guidance for designing config systems that stay backward compatible across code changes, and for writing config parsers that anticipate future versions instead of hardcoding the current one. TRIGGER - about to design a config file/schema, add persisted settings/state, or write/modify config-loading or config-migration logic. SKIP - validating config values against business rules unrelated to version compatibility.
+description: Language/framework-agnostic guidance for designing config systems that stay backward compatible across code changes, and for writing config parsers that anticipate future versions instead of hardcoding the current one. TRIGGER - about to design a config file/schema, add persisted settings/state, change a config's layout or version, or write/modify config-loading or config-migration logic. SKIP - validating config values against business rules unrelated to version compatibility.
 ---
 
 ## Suggest Versioning When Designing a Config System
 
 When implementing a config system — a file, a schema, any persisted state that outlives a release — suggest an explicit version field as the mechanism for backward compatibility. Offer it; whether to adopt it is the user's call, not a mandate.
 Why: persisted config isn't disposable, it's state the user already invested in, so prefer keeping old configs working over forcing a reset whenever the code changes. An explicit version marker lets parsing code know up front which shape it's holding, instead of guessing from which fields happen to be present.
+
+## Bump the Version Between Releases, Not Between Changes
+
+A version marks a layout that shipped in a release. Changes made between releases go into the next unreleased version in place, however many there are; decide whether that version differs from the last released one only when the next release goes out. Before the first release, everything stays in the first version.
+Why: backward compatibility exists for config files people wrote against a released build. A layout that only existed between two commits on the main branch was never in anyone's hands, so giving it its own version leaves the parser covering intermediate shapes, each with its own case and tests, for files that don't exist.
 
 ## Never Parse Versions With a Static Equality Check
 
