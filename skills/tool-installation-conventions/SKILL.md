@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, node, pnpm, poetry, rustc, rustup, uv).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, gradle, java, node, pnpm, poetry, rustc, rustup, sdk, uv).
 ---
 
 ## Installing a Listed Tool
@@ -85,6 +85,26 @@ gh auth login
 
 Besides finding `gh`, check the login with `gh auth status`.
 
+### Gradle
+
+Requires SDKMAN!; install it first if it's missing too.
+
+Ubuntu x64:
+
+```sh
+source ~/.sdkman/bin/sdkman-init.sh && sdk install gradle
+```
+
+### Java (JDK)
+
+Requires SDKMAN!; install it first if it's missing too.
+
+Ubuntu x64, picking the Temurin version from the identifiers `sdk list java` shows:
+
+```sh
+source ~/.sdkman/bin/sdkman-init.sh && sdk install java <version>-tem
+```
+
 ### Node
 
 Requires pnpm; install it first if it's missing too.
@@ -120,6 +140,17 @@ Ubuntu x64:
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ```
+
+### SDKMAN! (sdk)
+
+Ubuntu x64:
+
+```sh
+curl -s "https://get.sdkman.io" | bash
+```
+
+SDKMAN! only hooks into bash and zsh, so fish finds its tools only through the PATH it inherits from bash.
+`sdk` itself is a bash function rather than a binary, so in a non-interactive shell, run `source ~/.sdkman/bin/sdkman-init.sh` before any `sdk` command, and check it with `bash -ic 'type sdk'` instead of `command -v`.
 
 ### uv
 
