@@ -33,6 +33,9 @@ Write an issue as narration led by background and rationale — what problem or 
 When the issue adopts a change already tracked in another repo — typically a repo following up on its template — link that repo's issue or PR and don't restate its background or rationale. The narration goes to what's specific to this repo: why the change matters here, or how it differs.
 Why: like a PR's closing keyword, the link puts the original reasoning one click away; restating it buries the part only this issue can say.
 
+When the issue hands off a change for a later session to implement, write it as if this session were the one implementing it: carry what this session learned that the next one can't easily recover — what prompted the change, the concrete cases involved, what was already ruled out, and where the change likely lands. Still keep the implementation to what to change and why, leaving the exact wording or code to that session.
+Why: the implementing session starts with only the issue, so context left out has to be rediscovered or re-explained by the user, while a spelled-out implementation just gets rewritten once that session sees the code.
+
 Prose is the default shape for that narrative, since most issues are one coherent problem description rather than a set of disjoint facts. Use a bullet list, code block, table, or section header wherever it separates genuinely distinct content more clearly than prose would — ordered steps, a short ranking, a before/after comparison, a snippet. The bar is whether the structure earns its place.
 
 ## Pull Requests
