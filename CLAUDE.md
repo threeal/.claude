@@ -31,6 +31,12 @@ Why: assume the code is correct on the first attempt instead of relying on a wri
 Auto mode licenses only read-only, state-free commands — never one run as a side effect of an implementation task, however routine it normally is.
 This doesn't cover a tool that generates part of the change itself, like a package manager writing the lockfile a manifest change needs — running it is writing the code, not checking it.
 
+## Changes in a Different Repo
+
+When a change belongs in a repo other than the current one — including `threeal/.claude`, reached through `~/.claude` — open a GitHub issue on that repo instead of implementing it, unless the user explicitly asks for it to be implemented and points to where.
+Why: the user works on each repo in its own session, so the issue is the handoff, and the session opened there does the implementation.
+Write that issue's body for the session that will implement it, as `github-writing-conventions` describes.
+
 ## Implementation Changes
 
 When a fix requires changing the underlying implementation — a different approach, a new abstraction, removing an existing feature — describe the change and its trade-offs first, then wait for explicit approval before editing.
