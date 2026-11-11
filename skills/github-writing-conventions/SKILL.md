@@ -26,6 +26,9 @@ Naming rather than linking an issue/PR fits a possessive phrase, or one already 
 Never link cross-repo with a bare number like #44.
 Why: GitHub resolves it against the rendering repo, pointing at whatever issue or PR holds that number there — very likely the wrong thing.
 
+When an issue or PR body mentions something external the repo doesn't already use or reference — a tool, library, language, framework, or plugin, or a config option, spec, or style guide — link it at its first mention in that body to its canonical source: the homepage or repository for a tool, library, language, or framework, and the relevant documentation page for a config option, spec, or guideline. Leave it unlinked when the repo already uses it or its README already links it, and leave later mentions in the same body as plain text.
+Why: a reader who doesn't know the thing has to look it up before they can judge the change, and in a repo adopting a new stack, most of what an issue mentions is unfamiliar.
+
 ## Issues
 
 Write an issue as narration led by background and rationale — what problem or gap prompted it, what's missing, confusing, or broken, and why that matters. The implementation gets barely any space: a sentence or two near the end, or folded into the closing line.
