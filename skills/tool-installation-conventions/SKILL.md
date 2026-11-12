@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, gradle, java, node, pnpm, poetry, rustc, rustup, sdk, uv).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, go, gradle, java, node, pnpm, poetry, rustc, rustup, sdk, uv).
 ---
 
 ## Installing a Listed Tool
@@ -84,6 +84,27 @@ gh auth login
 ```
 
 Besides finding `gh`, check the login with `gh auth status`.
+
+### Go
+
+Ubuntu x64, from the official tarball, with `<version>` the latest release from `https://go.dev/VERSION?m=text` (e.g. `go1.25.4`).
+Download it:
+
+```sh
+curl -fsSLO https://go.dev/dl/<version>.linux-amd64.tar.gz
+```
+
+Check the tarball's SHA-256 against the one `https://go.dev/dl/?mode=json` lists for it, and extract it only if they match:
+
+```sh
+tar -C ~/.local -xzf <version>.linux-amd64.tar.gz
+```
+
+The tarball doesn't touch any shell config, so put Go and the binaries from `go install` on the PATH in `~/.config/fish/conf.d/go.fish`:
+
+```fish
+fish_add_path -g "$HOME/.local/go/bin" "$HOME/go/bin"
+```
 
 ### Gradle
 
