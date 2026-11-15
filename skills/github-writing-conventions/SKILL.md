@@ -74,7 +74,7 @@ Why: the dot-prefixed directory stays out of normal listings and goes away in on
 
 ## Casing and Punctuation
 
-- PR title: capitalize the first letter — `Add login feature`, not `add login feature`.
+- Issue and PR titles: sentence case, capitalizing only the first word and proper nouns — `Lock Gradle dependencies`, not `lock Gradle dependencies` or `Lock Gradle Dependencies`.
 - Repo description: capitalize the first letter, and end with no period or other punctuation.
 
 A repo description is a single tagline, a sentence fragment rather than a full sentence. Commas can lightly join related qualities (`Fast, minimal HTTP router for Go`), and one `-` or `—` can join a name to a clarifying clause (`Zod — TypeScript-first schema validation`), but don't stack more than one separator. No emoji.
