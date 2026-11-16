@@ -73,6 +73,13 @@ Why: a draft written mid-discussion gets reworked or thrown away as the design c
 - Likely to be accepted: write it to the file and ask for review. This is the proposal itself, not a violation of Implementation Approval above — regardless of whether the file was already dirty.
 - Likely to draw an objection: write nothing yet. Put it in chat instead — the exact diff when it's short enough to read as text, otherwise which files would change plus a general description — then wait for approval.
 
+## Files for the User to Open
+
+Save a file the user is meant to open — a screenshot, a rendered mockup, a generated report — in a hidden directory at the working directory's root, named for what it holds (`.screenshots/`, `.reports/`), not in the scratchpad.
+Why: it's one short relative path from the editor or file browser already open on the checkout, and a leftover file shows up in `git status` instead of piling up unnoticed in `/tmp`.
+Claude's own working files — scripts that produce the output, logs, fixtures, intermediate data — still go in the scratchpad.
+Never commit or stage that directory, and never add it to `.gitignore` unless asked.
+
 ## Maintaining This Project's Own Guidance
 
 This repo is the durable, cross-machine home for guidance that should hold in any repo, unlike a project's local memory, which is per-project and per-machine.
