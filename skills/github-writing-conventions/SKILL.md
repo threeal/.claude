@@ -66,11 +66,11 @@ Omit the test plan entirely unless a human has to verify something by hand — s
 
 Neither `gh` nor the GitHub API can upload images into an issue or PR body or comment, so screenshots have to be dragged into the GitHub editor by the user. Make that step mechanical:
 
-- Save the image files in a `.screenshots/` directory at the repo root, named for what each one shows (`before-login.png`, `after-login.png`), and never commit them.
+- Save the image files in `.screenshots/`, named for what each one shows (`before-login.png`, `after-login.png`).
 - In the body or comment, put a visible placeholder wherever each image belongs, naming its exact file — e.g. `**[Drop .screenshots/before-login.png here]**`.
 - After opening the issue or PR, tell the user its placeholders are waiting for images, and that `.screenshots/` can be deleted once they're placed.
 
-Why: the dot-prefixed directory stays out of normal listings and goes away in one delete, and a placeholder naming its file leaves no guessing about which image goes where.
+Why: a placeholder naming its file leaves no guessing about which image goes where.
 
 ## Casing and Punctuation
 
