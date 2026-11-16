@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, go, gradle, java, node, pnpm, poetry, rustc, rustup, sdk, uv).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, go, golangci-lint, gradle, java, node, pnpm, poetry, rustc, rustup, sdk, uv).
 ---
 
 ## Installing a Listed Tool
@@ -105,6 +105,19 @@ The tarball doesn't touch any shell config, so put Go and the binaries from `go 
 ```fish
 fish_add_path -g "$HOME/.local/go/bin" "$HOME/go/bin"
 ```
+
+### golangci-lint
+
+Requires Go; install it first if it's missing too.
+
+Ubuntu x64, from the official install script, into the bin directory `go install` uses, which the Go entry already puts on the PATH:
+
+```sh
+curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b ~/go/bin
+```
+
+The script checks the release tarball's SHA-256 itself.
+Don't install it with `go install`; golangci-lint's docs advise against building it from source.
 
 ### Gradle
 
