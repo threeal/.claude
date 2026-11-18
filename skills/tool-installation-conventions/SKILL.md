@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, go, golangci-lint, gradle, java, node, pnpm, poetry, rustc, rustup, sdk, uv).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, go, golangci-lint, gradle, java, node, pnpm, poetry, rustc, rustup, sdk, uv, winget).
 ---
 
 ## Installing a Listed Tool
@@ -9,10 +9,12 @@ When a needed tool is missing and Tools below lists it for the current platform,
 Why: the listed commands fix where each tool comes from, so every machine gets it from the same source.
 
 Tell the platform from `/etc/os-release` and `uname -m`.
+On Windows, where neither exists, tell it from `$env:OS` (`Windows_NT`) and `$env:PROCESSOR_ARCHITECTURE` (`AMD64` for x64) in PowerShell.
 If the tool, the platform, or a prerequisite (e.g. an apt package needing `sudo`) isn't covered here, stop: name what's missing, and give the command for the user to run when it's known.
 
 A step that needs `sudo` or other interactive input is the user's to run: give it as one command per step, to run in a separate terminal.
 Why: `! <command>` has no terminal to prompt in, so `sudo` fails there with "a terminal is required to read the password".
+Over Windows OpenSSH, an administrator account's session is already elevated, so a step needing admin rights isn't the user's to run there.
 
 ## After Installing
 
@@ -29,6 +31,8 @@ If neither finds it, fix the shell setup the installer left — its output usual
 Keep working without waiting on a restart. The current session's commands still run on the environment from before the install, so make the tool available within each command that needs it, without touching anything global — e.g. `. "$HOME/.cargo/env" && cargo build`. Once the task is done, suggest the user restart the shell and Claude Code.
 
 That workaround belongs only to the session that did the install. In a later session, a tool that's installed but not found means its shell setup is broken — fix that instead.
+
+On Windows, none of the above shell checks apply. A shell started before the install doesn't see the PATH change the installer made, and a child shell inherits that stale PATH, so call a newly installed tool by its full path until the shell is restarted, then check it with `Get-Command <tool>`.
 
 ## Tools
 
@@ -193,3 +197,15 @@ Ubuntu x64:
 ```sh
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+
+### winget
+
+Windows x64, in PowerShell, without admin rights.
+Register App Installer, which puts winget at `%LOCALAPPDATA%\Microsoft\WindowsApps\winget.exe`, then install the winget source's data package:
+
+```powershell
+Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+Add-AppxPackage -Path https://cdn.winget.microsoft.com/cache/source.msix
+```
+
+Without the second, every install fails with `0x8a15000f : Data required by the source is missing`, which neither `winget source update` nor `winget source reset --force` fixes.
