@@ -1,7 +1,19 @@
 ---
 name: git-branch-conventions
-description: Naming for git branches. TRIGGER - about to create a branch with `git checkout -b`, `git switch -c`, or `git branch`, or otherwise pick a branch name.
+description: Choosing the base and the name for git branches. TRIGGER - about to start implementing a change meant for its own PR, create a branch with `git checkout -b`, `git switch -c`, or `git branch`, or otherwise pick a branch's base or name.
 ---
+
+## Base
+
+Start new work from the latest default branch, not from whatever branch is checked out. That's often the previous PR's branch, left behind while that PR is still unmerged.
+
+When the work builds on an unmerged PR, do one of two things:
+
+- implement it against the default branch alone, without that PR's change;
+- name the PR it needs, and let the user decide whether to merge that PR first or stack the new work on it.
+
+Stack a branch or PR on another only when the user explicitly says to.
+Why: stacking only settles merge order, and pays off only when something has to be built quickly on a dependency that can't merge yet. That's the user's call, not something implied by the dependency being checked out or by the new work using its code.
 
 ## Naming
 
