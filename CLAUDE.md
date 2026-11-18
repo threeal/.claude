@@ -53,9 +53,16 @@ Why: whether the output matches what the tool would generate is exactly what run
 
 ## Blocked Permissions
 
-At the first step blocked by privilege or security — `sudo` asking for a password, a denied tool call, a missing group membership, a locked key — stop there, name the blocker, and give the exact command or action that unblocks it, as `! <command>` when there's one to run (e.g. `! ssh -t user@host sudo reboot`).
-Why: the user always has more privilege than Claude and can unblock it in seconds, while a workaround is usually a weaker substitute for what was asked and may do something they never agreed to.
+At the first step blocked by privilege or security, stop there, and handle it by where the block comes from:
+
+- A real privilege or access gap — `sudo` asking for a password, a missing group membership, a locked key, a login: name the blocker and give the exact command or action that unblocks it, as `! <command>` when there's one to run (e.g. `! ssh -t user@host sudo reboot`).
+- A block from Claude Code's own rules — the auto mode classifier, a permission rule, a declined permission prompt: say what was blocked and exactly what Claude will run, and ask permission to run it. Never suggest the user run it themselves.
+
+Why: the user always has more privilege than Claude and can unblock it in seconds, while a workaround is usually a weaker substitute for what was asked and may do something they never agreed to. A block from Claude Code's own rules only means nothing sanctioned the action yet, so it's a yes/no decision, and handing over the command turns it into manual work.
 An alternative may be mentioned as an option alongside, but never carried out in its place.
+
+On a yes, retry the exact action named: the auto mode classifier reads an explicit approval of that action as clearing the block, for that action only. A `deny` rule in settings isn't cleared by approval — name the rule that has to change instead.
+When an action a skill spells out still gets blocked, propose updating that skill or the permission settings it relies on (such as `autoMode.allow`), rather than routing the step through the user each time.
 
 ## Asking Questions
 
