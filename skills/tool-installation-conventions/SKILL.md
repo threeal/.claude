@@ -87,6 +87,16 @@ sudo apt install gh
 gh auth login
 ```
 
+Windows x64, which requires winget; install it first if it's missing too.
+Install it, which puts `gh.exe` in `C:\Program Files\GitHub CLI\`:
+
+```powershell
+winget install --id GitHub.cli --source winget
+```
+
+Then give the user `gh auth login` to run.
+Over SSH, no browser opens on the remote machine, so they log in through the one-time code and URL it prints instead.
+
 Besides finding `gh`, check the login with `gh auth status`.
 
 ### Go
