@@ -37,6 +37,9 @@ When a change belongs in a repo other than the current one — including `threea
 Why: the user works on each repo in its own session, so the issue is the handoff, and the session opened there does the implementation.
 Write that issue's body for the session that will implement it, as `github-writing-conventions` describes.
 
+The issue is only where the change goes; opening it still needs the user's go-ahead, like a commit or push. Until then, describe the issue in chat — repo, title, and body — and wait.
+Why: a user mentioning that another repo needs the change is raising a concern, not asking for action, and a public issue can't really be taken back — deleting it still leaves notifications, and closing it leaves it in the repo's history.
+
 ## Implementation Changes
 
 When a fix requires changing the underlying implementation — a different approach, a new abstraction, removing an existing feature — describe the change and its trade-offs first, then wait for explicit approval before editing.
