@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. cargo, cargo-tarpaulin, dprint, gh, go, golangci-lint, gradle, java, node, pnpm, poetry, rustc, rustup, sdk, uv, winget).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. brew, cargo, cargo-tarpaulin, dprint, gh, go, golangci-lint, gradle, java, lefthook, node, pnpm, poetry, rustc, rustup, sdk, uv, winget).
 ---
 
 ## Installing a Listed Tool
@@ -9,6 +9,7 @@ When a needed tool is missing and Tools below lists it for the current platform,
 Why: the listed commands fix where each tool comes from, so every machine gets it from the same source.
 
 Tell the platform from `/etc/os-release` and `uname -m`.
+On macOS, where `/etc/os-release` doesn't exist, `uname -s` prints `Darwin` instead, and `uname -m` prints `arm64` on Apple silicon.
 On Windows, where neither exists, tell it from `$env:OS` (`Windows_NT`) and `$env:PROCESSOR_ARCHITECTURE` (`AMD64` for x64) in PowerShell.
 If the tool, the platform, or a prerequisite (e.g. an apt package needing `sudo`) isn't covered here, stop: name what's missing, and give the command for the user to run when it's known.
 
@@ -143,6 +144,17 @@ Ubuntu x64:
 source ~/.sdkman/bin/sdkman-init.sh && sdk install gradle
 ```
 
+### Homebrew (brew)
+
+macOS arm64, from the official install script.
+It asks for the user's password to run `sudo`, so give the user this to run:
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Then have them run the "Next steps" commands it prints, which put `/opt/homebrew/bin` on the PATH.
+
 ### Java (JDK)
 
 Requires SDKMAN!; install it first if it's missing too.
@@ -151,6 +163,15 @@ Ubuntu x64, picking the Temurin version from the identifiers `sdk list java` sho
 
 ```sh
 source ~/.sdkman/bin/sdkman-init.sh && sdk install java <version>-tem
+```
+
+### Lefthook
+
+macOS arm64, which requires Homebrew; install it first if it's missing too.
+Install it, which puts it in `/opt/homebrew/bin`, already on the PATH from Homebrew's own setup:
+
+```sh
+brew install lefthook
 ```
 
 ### Node
