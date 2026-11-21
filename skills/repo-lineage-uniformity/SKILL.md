@@ -9,6 +9,7 @@ Repos under https://github.com/threeal aren't standalone — each can derive fro
 
 ```
 project-starter -> .claude
+project-starter -> composite-action-starter
 project-starter -> go-starter
 project-starter -> kotlin-starter
 project-starter -> nodejs-starter
