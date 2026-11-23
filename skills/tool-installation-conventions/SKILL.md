@@ -204,7 +204,7 @@ pipx install poetry
 
 ### Rust (cargo, rustc, rustup)
 
-Ubuntu x64:
+macOS arm64 and Ubuntu x64:
 
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
