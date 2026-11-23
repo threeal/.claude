@@ -223,7 +223,7 @@ SDKMAN! only hooks into bash and zsh, so fish finds its tools only through the P
 
 ### uv
 
-Ubuntu x64:
+macOS arm64 and Ubuntu x64:
 
 ```sh
 curl -LsSf https://astral.sh/uv/install.sh | sh
