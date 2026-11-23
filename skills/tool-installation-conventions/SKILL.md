@@ -71,6 +71,15 @@ fish_add_path -g "$DPRINT_INSTALL/bin"
 
 ### gh
 
+macOS arm64, which requires Homebrew; install it first if it's missing too.
+Install it, which puts it in `/opt/homebrew/bin`, already on the PATH from Homebrew's own setup:
+
+```sh
+brew install gh
+```
+
+Then give the user `gh auth login` to run.
+
 Ubuntu x64, from GitHub's apt repository. Prepare its keyring and source file in the scratchpad yourself:
 
 ```sh
