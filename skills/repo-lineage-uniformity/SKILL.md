@@ -15,6 +15,7 @@ project-starter -> kotlin-starter
 project-starter -> nodejs-starter
 project-starter -> python-starter
 project-starter -> rust-starter
+project-starter -> swift-starter
 project-starter -> threeal
 nodejs-starter -> action-starter
 nodejs-starter -> ghakit
