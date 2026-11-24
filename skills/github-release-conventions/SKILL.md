@@ -29,7 +29,8 @@ Why: a manually opened discussion isn't linked to the release, so it doesn't sho
 
 ## Title and Tag
 
-Title a release `Version X.Y.Z`, for tag `vX.Y.Z`.
+Title a release `Version X.Y.Z`, for tag `vX.Y.Z` — or `X.Y.Z` where the ecosystem's convention is to tag without the prefix, such as a Swift package.
+Why: a tag that breaks its ecosystem's convention stands out from the packages around it; SwiftPM accepts `v1.2.3`, but Swift packages are tagged `1.2.3`, while Go modules require the `v`.
 
 Create the tag as a signed annotated tag whose message is the same `Version X.Y.Z` as the release title — see `git-tag-conventions` for how to sign it.
 
