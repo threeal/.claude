@@ -179,7 +179,7 @@ brew install lefthook
 
 Requires pnpm; install it first if it's missing too.
 
-Ubuntu x64:
+macOS arm64 and Ubuntu x64:
 
 ```sh
 pnpm runtime set node lts -g
