@@ -195,7 +195,7 @@ pnpm runtime set node lts -g
 
 ### pnpm
 
-Ubuntu x64:
+macOS arm64 and Ubuntu x64:
 
 ```sh
 curl -fsSL https://get.pnpm.io | sh -
