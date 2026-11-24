@@ -19,21 +19,22 @@ Over Windows OpenSSH, an administrator account's session is already elevated, so
 
 ## After Installing
 
-Check the tool in a fresh interactive shell, which reads the shell config the way a new terminal does:
+Check the tool in a fresh interactive session of the user's default shell, which reads the shell config the way a new terminal does:
 
 ```sh
-fish -ic 'command -v <tool>'
+"$SHELL" -ic 'command -v <tool>'
 ```
 
-If fish can't find it, try `bash -ic 'command -v <tool>'`. Fish is launched from bash, so a PATH set in the bash config also reaches fish.
+`$SHELL` is the login shell: usually bash on Linux and zsh on macOS. When fish runs on top of it, fish inherits the PATH it sets, so a tool found there reaches fish too. When fish is the default shell itself, `$SHELL` is fish.
 
-If neither finds it, fix the shell setup the installer left — its output usually says where it added PATH or what to add — then check again, and suggest adding the fix to that tool's entry below.
+If it isn't found, fix the shell setup the installer left — its output usually says where it added PATH or what to add — then check again. Suggest adding the fix to that tool's entry below only when the installer's output doesn't make it clear, such as an installer that touches no shell config and says nothing about it.
+An entry's shell setup goes in the default shell's own config: `~/.bashrc` for bash, `~/.zshrc` for zsh, or `~/.config/fish/conf.d/<tool>.fish` for fish.
 
 Keep working without waiting on a restart. The current session's commands still run on the environment from before the install, so make the tool available within each command that needs it, without touching anything global — e.g. `. "$HOME/.cargo/env" && cargo build`. Once the task is done, suggest the user restart the shell and Claude Code.
 
 That workaround belongs only to the session that did the install. In a later session, a tool that's installed but not found means its shell setup is broken — fix that instead.
 
-On Windows, none of the above shell checks apply. A shell started before the install doesn't see the PATH change the installer made, and a child shell inherits that stale PATH, so call a newly installed tool by its full path until the shell is restarted, then check it with `Get-Command <tool>`.
+On Windows, the default shell is PowerShell, and the same steps apply, checking with `Get-Command <tool>`, except that the check can't run in a shell started from the current one. A shell started before the install doesn't see the PATH change the installer made, and a child shell inherits that stale PATH, so call a newly installed tool by its full path until the shell is restarted, then check it.
 
 ## Tools
 
@@ -62,12 +63,7 @@ Ubuntu x64:
 curl -fsSL https://dprint.dev/install.sh | sh
 ```
 
-The installer doesn't touch any shell config, so put dprint on the PATH in `~/.config/fish/conf.d/dprint.fish`:
-
-```fish
-set -gx DPRINT_INSTALL "$HOME/.dprint"
-fish_add_path -g "$DPRINT_INSTALL/bin"
-```
+The installer doesn't touch any shell config, so in the default shell's config, set `DPRINT_INSTALL` to `$HOME/.dprint` and put `$DPRINT_INSTALL/bin` on the PATH.
 
 ### gh
 
@@ -124,11 +120,7 @@ Check the tarball's SHA-256 against the one `https://go.dev/dl/?mode=json` lists
 tar -C ~/.local -xzf <version>.linux-amd64.tar.gz
 ```
 
-The tarball doesn't touch any shell config, so put Go and the binaries from `go install` on the PATH in `~/.config/fish/conf.d/go.fish`:
-
-```fish
-fish_add_path -g "$HOME/.local/go/bin" "$HOME/go/bin"
-```
+The tarball doesn't touch any shell config, so in the default shell's config, put Go and the binaries from `go install` on the PATH: `$HOME/.local/go/bin` and `$HOME/go/bin`.
 
 ### golangci-lint
 
@@ -227,7 +219,7 @@ Ubuntu x64:
 curl -s "https://get.sdkman.io" | bash
 ```
 
-SDKMAN! only hooks into bash and zsh, so fish finds its tools only through the PATH it inherits from bash.
+SDKMAN! only hooks into bash and zsh, so fish finds its tools only when it runs on top of one of them and inherits its PATH.
 `sdk` itself is a bash function rather than a binary, so in a non-interactive shell, run `source ~/.sdkman/bin/sdkman-init.sh` before any `sdk` command, and check it with `bash -ic 'type sdk'` instead of `command -v`.
 
 ### uv
