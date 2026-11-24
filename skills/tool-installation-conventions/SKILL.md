@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. brew, cargo, cargo-tarpaulin, dprint, gh, go, golangci-lint, gradle, java, lefthook, node, pnpm, poetry, rustc, rustup, sdk, uv, winget).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. brew, cargo, cargo-tarpaulin, dprint, gh, go, golangci-lint, gradle, java, lefthook, node, pnpm, poetry, rustc, rustup, sdk, swift, uv, winget, xcodebuild).
 ---
 
 ## Installing a Listed Tool
@@ -222,6 +222,11 @@ curl -s "https://get.sdkman.io" | bash
 SDKMAN! only hooks into bash and zsh, so fish finds its tools only when it runs on top of one of them and inherits its PATH.
 `sdk` itself is a bash function rather than a binary, so in a non-interactive shell, run `source ~/.sdkman/bin/sdkman-init.sh` before any `sdk` command, and check it with `bash -ic 'type sdk'` instead of `command -v`.
 
+### Swift
+
+macOS arm64, which comes with Xcode; install it if it's missing.
+The Command Line Tools also ship `swift`, but Swift Testing won't run without full Xcode.
+
 ### uv
 
 macOS arm64 and Ubuntu x64:
@@ -241,3 +246,12 @@ Add-AppxPackage -Path https://cdn.winget.microsoft.com/cache/source.msix
 ```
 
 Without the second, every install fails with `0x8a15000f : Data required by the source is missing`, which neither `winget source update` nor `winget source reset --force` fixes.
+
+### Xcode
+
+macOS arm64. Have the user install it from the App Store, which puts it at `/Applications/Xcode.app`, then give them these to run, one at a time:
+
+```sh
+sudo xcode-select -s /Applications/Xcode.app
+sudo xcodebuild -license accept
+```
