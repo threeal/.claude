@@ -90,7 +90,22 @@ Why: it's one short relative path from the editor or file browser already open o
 Claude's own working files — scripts that produce the output, logs, fixtures, intermediate data — still go in the scratchpad.
 Never commit or stage that directory, and never add it to `.gitignore` unless asked.
 
-## Maintaining This Project's Own Guidance
+## Keeping Guidance in Repos
 
-This repo is the durable, cross-machine home for guidance that should hold in any repo, unlike a project's local memory, which is per-project and per-machine.
-When a memory entry saved in any project reflects general guidance about Claude's behavior, workflow, or formatting conventions — not something specific to that project's own code or context — ask whether it should be proposed as a change here instead of left local to that project.
+Put guidance worth keeping in a repo first, and keep memory as empty as possible.
+Why: memory is per-project and per-machine, so anything kept only there drifts from the repos and from the same lesson saved on another machine.
+
+Suggest it as a repo change instead of saving it to memory; the user may decline.
+General guidance about Claude's behavior, workflow, or formatting goes to `threeal/.claude`: an edit when the session is there, otherwise an issue, as Changes in a Different Repo describes.
+A fact about one project goes to that project's `CLAUDE.md` or `.claude/` skills, proposed like any other file change.
+Save to memory only to hold an entry until its change merges, and delete it once the change lands.
+
+When it's unclear when a rule would apply and when it wouldn't, write no rule and save no memory.
+Why: rules get followed literally, so a loosely scoped one does more harm than none.
+
+Check leftover memory entries only when the work touches one or its topic, or when nothing else is left to do in the current project or on this machine — never in the way of the current work.
+First pull `~/.claude` with `git -C ~/.claude pull --ff-only`, then look for the entry in `threeal/.claude`'s content and its open issues and PRs, or, for a project fact, in that project's `CLAUDE.md` and `.claude/`. Report briefly:
+
+- Already landed: name it and propose removing it, deleting only after confirmation.
+- Waiting on an open issue or PR: say where it's tracked.
+- Tracked nowhere: describe it and ask whether to move it to a repo, keep it, or remove it.
