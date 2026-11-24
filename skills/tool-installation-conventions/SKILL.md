@@ -57,7 +57,7 @@ cargo install cargo-tarpaulin
 
 ### dprint
 
-Ubuntu x64:
+macOS arm64 and Ubuntu x64:
 
 ```sh
 curl -fsSL https://dprint.dev/install.sh | sh
