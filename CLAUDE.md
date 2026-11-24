@@ -88,6 +88,7 @@ Why: a draft written mid-discussion gets reworked or thrown away as the design c
 Save a file the user is meant to open — a screenshot, a rendered mockup, a generated report — in a hidden directory at the working directory's root, named for what it holds (`.screenshots/`, `.reports/`), not in the scratchpad.
 Why: it's one short relative path from the editor or file browser already open on the checkout, and a leftover file shows up in `git status` instead of piling up unnoticed in `/tmp`.
 Claude's own working files — scripts that produce the output, logs, fixtures, intermediate data — still go in the scratchpad.
+Text the user reviews before it's posted — an issue or PR draft, a commit message — goes in the chat reply, not a file.
 Never commit or stage that directory, and never add it to `.gitignore` unless asked.
 
 ## Keeping Guidance in Repos
