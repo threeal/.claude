@@ -22,7 +22,7 @@ Pick the next change by what it actually depends on in the child:
 - Put a change that another change makes necessary into the same PR, such as cleanup left unused by an upgrade.
 - Skip the parent's intermediate steps when only the end state matters, such as going straight from tsup to Rolldown without the parent's tsdown step.
 
-Before porting, judge whether the parent's pattern actually fits the child. If it doesn't, say why and suggest what to do instead.
+Before porting, judge whether the parent's pattern actually fits the child. If it doesn't, say why and suggest what to do instead. For a change to a starter README's Customizing section, judge each entry by `starter-readme-conventions` rather than copying it.
 
 Open an issue only when the parent had one for the change; otherwise go straight to a PR.
 

@@ -21,4 +21,7 @@ Why: instructing additions by default steers users away from checking code they 
 
 ## The Customizing Section
 
-Keep it to the parts that change: one short item per file or directory to replace, plus one sentence for optional removals (like an example CLI). No checklist of every line that names a placeholder.
+List only what someone starting a project from this template is meant to change, judged against this template's own stack: one short item per file or directory to replace, plus one sentence for optional removals (like an example CLI). No checklist of every line that names a placeholder.
+
+A parent template's list doesn't carry over to a child. `project-starter` lists `.github/workflows/` because it leaves CI to the project, while `nodejs-starter` already sets up CI for its stack, so its README doesn't list the workflows.
+Why: each template decides a different share of the stack, so what a project made from it still has to replace differs too.
