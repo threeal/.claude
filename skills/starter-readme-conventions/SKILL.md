@@ -1,6 +1,6 @@
 ---
-name: readme-conventions
-description: What a README should and shouldn't explain — assumed reader knowledge, what tooling already catches, opt-outs, and a template's Customizing section. TRIGGER - about to write, edit, or trim a README.md, or review what one covers.
+name: starter-readme-conventions
+description: What a starter template's README should and shouldn't explain — assumed reader knowledge, what tooling already catches, opt-outs, and the Customizing section. TRIGGER - about to write, edit, or trim the README.md of `threeal/project-starter` or a `*-starter` repo derived from it, or review what one covers.
 ---
 
 This is on top of `prose-conventions`'s general rules for writing and editing prose; what follows is about what to include, not how to word it.
@@ -19,6 +19,6 @@ Why: the reader can't recover from an error that never names the fix, and can't 
 An exclusion list — coverage, lint, or similar — is for what the user chooses to leave out. Say what it's for, never tell users to add each new file or package to it.
 Why: instructing additions by default steers users away from checking code they might want covered.
 
-## A Template's Customizing Section
+## The Customizing Section
 
 Keep it to the parts that change: one short item per file or directory to replace, plus one sentence for optional removals (like an example CLI). No checklist of every line that names a placeholder.
