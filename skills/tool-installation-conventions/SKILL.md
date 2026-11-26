@@ -193,6 +193,12 @@ macOS arm64 and Ubuntu x64:
 curl -fsSL https://get.pnpm.io | sh -
 ```
 
+Windows x64:
+
+```powershell
+Invoke-WebRequest https://get.pnpm.io/install.ps1 -UseBasicParsing | Invoke-Expression
+```
+
 ### Poetry
 
 Requires pipx.
