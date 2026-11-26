@@ -211,6 +211,14 @@ macOS arm64 and Ubuntu x64:
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ```
 
+Windows x64, which requires the Visual Studio C++ build tools, since it targets MSVC; the installer checks for them and says what's missing.
+Download the installer into the scratchpad and run it:
+
+```powershell
+Invoke-WebRequest https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe -OutFile rustup-init.exe
+.\rustup-init.exe -y
+```
+
 ### SDKMAN! (sdk)
 
 Ubuntu x64:
