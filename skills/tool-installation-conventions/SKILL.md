@@ -243,6 +243,12 @@ macOS arm64 and Ubuntu x64:
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
+Windows x64:
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
 ### winget
 
 Windows x64, in PowerShell, without admin rights.
