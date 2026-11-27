@@ -1,6 +1,6 @@
 ---
 name: tool-installation-conventions
-description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. brew, cargo, cargo-tarpaulin, dprint, gh, go, golangci-lint, gradle, java, lefthook, node, pnpm, poetry, rustc, rustup, sdk, swift, uv, winget, xcodebuild).
+description: Approved install commands for CLI tools per platform, and how to install one mid-task without blocking it. TRIGGER - a command fails with "command not found", or a task needs a CLI tool that isn't installed (e.g. brew, cargo, cargo-tarpaulin, dprint, ffmpeg, gh, go, golangci-lint, gradle, java, lefthook, node, pnpm, poetry, rustc, rustup, sdk, swift, uv, winget, xcodebuild).
 ---
 
 ## Installing a Listed Tool
@@ -64,6 +64,15 @@ curl -fsSL https://dprint.dev/install.sh | sh
 ```
 
 The installer doesn't touch any shell config, so in the default shell's config, set `DPRINT_INSTALL` to `$HOME/.dprint` and put `$DPRINT_INSTALL/bin` on the PATH.
+
+### ffmpeg
+
+Windows x64, which requires winget; install it first if it's missing too.
+Install it, which links `ffmpeg.exe` into `%LOCALAPPDATA%\Microsoft\WinGet\Links`:
+
+```powershell
+winget install --id Gyan.FFmpeg --source winget
+```
 
 ### gh
 
