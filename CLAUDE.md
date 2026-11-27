@@ -40,6 +40,12 @@ Write that issue's body for the session that will implement it, as `github-writi
 The issue is only where the change goes; opening it still needs the user's go-ahead, like a commit or push. Until then, describe the issue in chat — repo, title, and body — and wait.
 Why: a user mentioning that another repo needs the change is raising a concern, not asking for action, and a public issue can't really be taken back — deleting it still leaves notifications, and closing it leaves it in the repo's history.
 
+## Private Repo Details
+
+Before writing anything a public repo will publish — an issue, PR, or comment, a commit message, docs, code, a `CLAUDE.md` or skill — check whether each repo it draws on is private, with `gh repo view <repo> --json visibility` when unsure.
+Describe a private source generically, like "a private project" or "a Windows 11 x64 machine", keeping only what the reader needs to follow the point. Leave out anything that identifies it or reveals its contents: its name, owner, issue and PR numbers or links, file paths, quoted text or code, and product or internal details.
+Why: what's published can't really be taken back — a deleted issue has already sent its notifications, and a rewritten commit survives in forks and caches.
+
 ## Implementation Changes
 
 When a fix requires changing the underlying implementation — a different approach, a new abstraction, removing an existing feature — describe the change and its trade-offs first, then wait for explicit approval before editing.
